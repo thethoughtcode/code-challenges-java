@@ -33,6 +33,7 @@ jobs:
             export SONAR_ARGS="$SONAR_ARGS -Dsonar.host.url=https://sonarcloud.io"
             export SONAR_ARGS="$SONAR_ARGS -Dsonar.coverage.jacoco.xmlReportPaths=$COVERAGE_FILE"
 
+
             mvn -B clean verify sonar:sonar $SONAR_ARGS
 
             # Submit Coverage Data to Codacy

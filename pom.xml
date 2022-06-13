@@ -7,7 +7,7 @@
     <version>1.0</version>
     <packaging>pom</packaging>
 
-    <name>Mastering Java</name>
+    <name>Code Challenges - Java</name>
 
     <modules>
         <module>common</module>

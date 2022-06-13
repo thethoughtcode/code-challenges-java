@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: io.sampadadubey.java.codingbat.warmup1.EndUpTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in io.sampadadubey.java.codingbat.warmup1.EndUpTest

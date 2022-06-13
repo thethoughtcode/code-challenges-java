@@ -7,11 +7,12 @@
     <version>1.0</version>
     <packaging>pom</packaging>
 
-    <name>Mastering Java</name>
+    <name>Code Challenges - Java</name>
 
     <modules>
         <module>common</module>
         <module>codingbat</module>
+        <module>hackerrank</module>
         <module>jacoco-report</module>
     </modules>
 

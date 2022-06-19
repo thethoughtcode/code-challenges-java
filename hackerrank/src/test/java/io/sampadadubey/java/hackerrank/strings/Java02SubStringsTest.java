@@ -4,12 +4,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
-public class Java02SubStringsTest {
+class Java02SubStringsTest {
 
     private final Java02SubStrings fixture = new Java02SubStrings();
 
     @Test
-    public void defaultCase() {
+    void defaultCase() {
 
         final String string = "Helloworld";
         final int startPosition = 3;

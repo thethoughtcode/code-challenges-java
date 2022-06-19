@@ -8,10 +8,10 @@ import java.io.PrintStream;
 
 import org.junit.jupiter.api.Test;
 
-public class Java08IPAddressCheckerTest {
+class Java08IPAddressCheckerTest {
 
     @Test
-    public void defaultCase() {
+    void defaultCase() {
 
         final ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));

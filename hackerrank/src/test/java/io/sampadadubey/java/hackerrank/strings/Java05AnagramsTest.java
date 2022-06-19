@@ -4,12 +4,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
-public class AnagramsTest {
+class Java05AnagramsTest {
 
-    private final Anagrams fixture = new Anagrams();
+    private final Java05Anagrams fixture = new Java05Anagrams();
 
     @Test
-    public void isAnagram_ReturnsTrue_WhenStringsAreAnagrams() {
+    void isAnagram_ReturnsTrue_WhenStringsAreAnagrams() {
 
         final String string1 = "anagram";
         final String string2 = "margana";
@@ -20,7 +20,7 @@ public class AnagramsTest {
     }
 
     @Test
-    public void isAnagram_ReturnsTrue_WhenStringsAreAnagramsCaseMismatch() {
+    void isAnagram_ReturnsTrue_WhenStringsAreAnagramsCaseMismatch() {
 
         final String string1 = "Hello";
         final String string2 = "hello";
@@ -31,7 +31,7 @@ public class AnagramsTest {
     }
 
     @Test
-    public void isAnagram_ReturnsFalse_WhenStringsAreNotAnagrams() {
+    void isAnagram_ReturnsFalse_WhenStringsAreNotAnagrams() {
 
         final String string1 = "anagramm";
         final String string2 = "marganaa";
@@ -42,7 +42,7 @@ public class AnagramsTest {
     }
 
     @Test
-    public void isAnagram_ReturnsFalse_WhenStringsAreNotOfSameLength() {
+    void isAnagram_ReturnsFalse_WhenStringsAreNotOfSameLength() {
 
         final String string1 = "anagramm";
         final String string2 = "margana";

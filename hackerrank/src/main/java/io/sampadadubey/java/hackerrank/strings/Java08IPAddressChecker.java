@@ -3,7 +3,7 @@ package io.sampadadubey.java.hackerrank.strings;
 import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 
-public class IPAddressChecker {
+public class Java08IPAddressChecker {
 
     private static final String IP_ADDRESS_RANGE = "([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])";
 
@@ -27,7 +27,7 @@ public class IPAddressChecker {
 
         final Scanner in = new Scanner(System.in);
 
-        final IPAddressChecker checker = new IPAddressChecker();
+        final Java08IPAddressChecker checker = new Java08IPAddressChecker();
 
         while (in.hasNext()) {
             final String ipAddress = in.next();

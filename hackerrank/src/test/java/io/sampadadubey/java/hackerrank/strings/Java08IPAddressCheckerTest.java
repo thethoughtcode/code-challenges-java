@@ -8,7 +8,7 @@ import java.io.PrintStream;
 
 import org.junit.jupiter.api.Test;
 
-public class PatternSyntaxCheckerTest {
+public class Java08IPAddressCheckerTest {
 
     @Test
     public void defaultCase() {
@@ -16,9 +16,9 @@ public class PatternSyntaxCheckerTest {
         final ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
 
-        final String expected = "Valid\nInvalid\nInvalid";
+        final String expected = "true\ntrue\ntrue\nfalse\nfalse\nfalse\ntrue\nfalse";
 
-        PatternSyntaxChecker.main(null);
+        Java08IPAddressChecker.main(null);
 
         final String actual = output.toString(UTF_8).trim();
 

@@ -8,23 +8,21 @@ import java.io.PrintStream;
 
 import org.junit.jupiter.api.Test;
 
-public class DuplicateWordsTest {
+class Java06TokensTest {
+
+    private final Java06Tokens fixture = new Java06Tokens();
 
     @Test
-    public void defaultCase() {
+    void defaultCase() {
+
+        final String string = "He is a very very good boy, isn't he?";
 
         final ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
 
-        // @formatter:off
-        final String expected = "Goodbye bye world\n"
-                              + "Sam went to his business\n"
-                              + "Reya is the best player in eye game\n"
-                              + "in inthe\n"
-                              + "Hello Ab";
-        // @formatter:on
+        final String expected = "10\nHe\nis\na\nvery\nvery\ngood\nboy\nisn\nt\nhe";
 
-        DuplicateWords.main(null);
+        fixture.processToken(string);
 
         final String actual = output.toString(UTF_8).trim();
 

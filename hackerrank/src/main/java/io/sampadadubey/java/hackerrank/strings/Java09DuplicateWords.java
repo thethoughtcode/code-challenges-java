@@ -7,13 +7,13 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DuplicateWords {
+public class Java09DuplicateWords {
 
-    // @formatter:off
     private static final Pattern DUPLICATE_WORD_REGEX = Pattern.compile("\\b(\\w+)(?:\\W+\\1\\b)+", CASE_INSENSITIVE);
 
     public static void main(final String[] args) {
 
+        // @formatter:off
         final String input = "5\n"
                            + "Goodbye bye bye world world world\n"
                            + "Sam went went to to to his business\n"
@@ -27,7 +27,7 @@ public class DuplicateWords {
 
         int testCases = Integer.parseInt(in.nextLine());
 
-        final DuplicateWords object = new DuplicateWords();
+        final Java09DuplicateWords object = new Java09DuplicateWords();
 
         while (testCases > 0) {
 

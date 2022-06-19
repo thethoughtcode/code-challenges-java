@@ -1,23 +1,6 @@
 package io.sampadadubey.java.hackerrank.strings;
 
-import java.io.ByteArrayInputStream;
-import java.util.Scanner;
-
-public class Tokens {
-
-    public static void main(String[] args) {
-
-        final String input = "He is a very very good boy, isn't he?";
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
-
-        final Scanner scan = new Scanner(System.in);
-
-        final String string = scan.nextLine();
-
-        scan.close();
-
-        new Tokens().processToken(string);
-    }
+public class Java06Tokens {
 
     public void processToken(final String string) {
 

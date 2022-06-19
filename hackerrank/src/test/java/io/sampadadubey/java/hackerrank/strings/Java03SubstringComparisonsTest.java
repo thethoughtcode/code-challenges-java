@@ -9,32 +9,20 @@ import java.io.PrintStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class Java03SubstringComparisonsTest {
+class Java03SubstringComparisonsTest {
 
     private ByteArrayOutputStream output;
 
     private final Java03SubstringComparisons fixture = new Java03SubstringComparisons();
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
     }
 
     @Test
-    public void defaultCase() {
-
-        final String expected = "ava\nwel";
-
-        Java03SubstringComparisons.main(null);
-
-        final String actual = output.toString(UTF_8);
-
-        assertThat(actual.trim()).isEqualTo(expected);
-    }
-
-    @Test
-    public void defaultCase2() {
+    void defaultCase2() {
 
         final String string = "helloworld";
 
@@ -48,7 +36,7 @@ public class Java03SubstringComparisonsTest {
     }
 
     @Test
-    public void run_PrintsStringAsMinAndMax_WhenSplitSizeIsGreaterThanStringLength() {
+    void run_PrintsStringAsMinAndMax_WhenSplitSizeIsGreaterThanStringLength() {
 
         final String string = "hello";
 

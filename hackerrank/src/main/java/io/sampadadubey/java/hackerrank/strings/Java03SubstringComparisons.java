@@ -1,24 +1,6 @@
 package io.sampadadubey.java.hackerrank.strings;
 
-import java.io.ByteArrayInputStream;
-import java.util.Scanner;
-
 public class Java03SubstringComparisons {
-
-    public static void main(final String[] args) {
-
-        final String input = "welcometojava\n3";
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
-
-        final Scanner scanner = new Scanner(System.in);
-
-        final String string = scanner.next();
-        final int splitSize = scanner.nextInt();
-
-        scanner.close();
-
-        new Java03SubstringComparisons().run(string, splitSize);
-    }
 
     public void run(final String string, final int splitSize) {
 

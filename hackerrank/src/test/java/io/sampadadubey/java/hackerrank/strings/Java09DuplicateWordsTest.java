@@ -8,17 +8,23 @@ import java.io.PrintStream;
 
 import org.junit.jupiter.api.Test;
 
-public class IPAddressCheckerTest {
+class Java09DuplicateWordsTest {
 
     @Test
-    public void defaultCase() {
+    void defaultCase() {
 
         final ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
 
-        final String expected = "true\ntrue\ntrue\nfalse\nfalse\nfalse\ntrue\nfalse";
+        // @formatter:off
+        final String expected = "Goodbye bye world\n"
+                              + "Sam went to his business\n"
+                              + "Reya is the best player in eye game\n"
+                              + "in inthe\n"
+                              + "Hello Ab";
+        // @formatter:on
 
-        IPAddressChecker.main(null);
+        Java09DuplicateWords.main(null);
 
         final String actual = output.toString(UTF_8).trim();
 

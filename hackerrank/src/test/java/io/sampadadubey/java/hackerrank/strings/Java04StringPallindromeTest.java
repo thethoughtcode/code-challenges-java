@@ -1,6 +1,5 @@
 package io.sampadadubey.java.hackerrank.strings;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.UUID.randomUUID;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -10,36 +9,34 @@ import java.io.PrintStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class StringPallindromeTest {
+class Java04StringPallindromeTest {
 
     private ByteArrayOutputStream output;
 
-    private StringPallindrome fixture = new StringPallindrome();
+    private Java04StringPallindrome fixture = new Java04StringPallindrome();
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
     }
 
     @Test
-    public void defaultCase() {
+    void isPallindrome_ReturnsNo_WhenStringIsNotPallindrome() {
 
-        final String expected = "Yes";
+        final String expected = "No";
 
-        StringPallindrome.main(null);
-
-        final String actual = output.toString(UTF_8);
+        final String actual = fixture.isPallindrome(randomUUID().toString());
 
         assertThat(actual.trim()).isEqualTo(expected);
     }
 
     @Test
-    public void isPallindrome_ReturnsNo_WhenStringIsNotPallindrome() {
+    void isPallindrome_ReturnsNo_WhenStringIsPallindrome() {
 
-        final String expected = "No";
+        final String expected = "Yes";
 
-        final String actual = fixture.isPallindrome(randomUUID().toString());
+        final String actual = fixture.isPallindrome("Y");
 
         assertThat(actual.trim()).isEqualTo(expected);
     }

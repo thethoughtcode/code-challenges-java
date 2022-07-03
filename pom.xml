@@ -12,6 +12,7 @@
     <modules>
         <module>common</module>
         <module>codingbat</module>
+        <module>exercism</module>
         <module>hackerrank</module>
         <module>jacoco-report</module>
     </modules>

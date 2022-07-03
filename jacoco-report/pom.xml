@@ -27,6 +27,11 @@
         </dependency>
         <dependency>
             <groupId>io.sampadadubey.java</groupId>
+            <artifactId>exercism</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.sampadadubey.java</groupId>
             <artifactId>hackerrank</artifactId>
             <version>${project.parent.version}</version>
         </dependency>

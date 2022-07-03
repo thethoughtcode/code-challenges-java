@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class GreeterTest {
 
     @Test
-    public void testThatGreeterReturnsTheCorrectGreeting() {
+    public void greeter_returns_the_correct_greeting() {
         assertThat(new Greeter().getGreeting()).isEqualTo("Hello, World!");
     }
 }

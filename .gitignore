@@ -68,8 +68,11 @@ hs_err_pid*
 **/.project
 **/.settings
 **/.classpath
-**/target
+**/target/*
 
 # VS code
 .vscode
 
+# Project specific
+common/target/**
+codingbat/target/**

@@ -2,7 +2,7 @@ package io.sampadadubey.java.exercism;
 
 class SpaceAge {
 
-    static final double EARTH_YEAR_IN_SECONDS = 31557600.0;
+    static final double EARTH_YEAR_IN_SECONDS = 31_557_600.0;
 
     private final double seconds;
 
@@ -53,21 +53,21 @@ class SpaceAge {
 
 enum Planet {
 
-    MERCURY(0.2408467),
+    MERCURY(0.240_846_7),
 
-    VENUS(0.61519726),
+    VENUS(0.615_197_26),
 
     EARTH(1.0),
 
-    MARS(1.8808158),
+    MARS(1.880_815_8),
 
-    JUPITER(11.862615),
+    JUPITER(11.862_615),
 
-    SATURN(29.447498),
+    SATURN(29.447_498),
 
-    URANUS(84.016846),
+    URANUS(84.016_846),
 
-    NEPTURE(164.79132),
+    NEPTURE(164.791_32),
     ;
 
     private final double yearConversion;

@@ -19,7 +19,7 @@ class NaturalNumberTest {
 
     @Test
     void testLargePerfectNumberIsClassifiedCorrectly() {
-        assertThat(new NaturalNumber(33550336).getClassification()).isEqualTo(Classification.PERFECT);
+        assertThat(new NaturalNumber(33_550_336).getClassification()).isEqualTo(Classification.PERFECT);
     }
 
     @Test
@@ -35,7 +35,7 @@ class NaturalNumberTest {
 
     @Test
     void testLargeAbundantNumberIsClassifiedCorrectly() {
-        assertThat(new NaturalNumber(33550335).getClassification()).isEqualTo(Classification.ABUNDANT);
+        assertThat(new NaturalNumber(33_550_335).getClassification()).isEqualTo(Classification.ABUNDANT);
     }
 
     @Test
@@ -55,7 +55,7 @@ class NaturalNumberTest {
 
     @Test
     void testLargeDeficientNumberIsClassifiedCorrectly() {
-        assertThat(new NaturalNumber(33550337).getClassification()).isEqualTo(Classification.DEFICIENT);
+        assertThat(new NaturalNumber(33_550_337).getClassification()).isEqualTo(Classification.DEFICIENT);
     }
 
     @Test

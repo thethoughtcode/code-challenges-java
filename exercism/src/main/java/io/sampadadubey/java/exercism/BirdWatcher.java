@@ -24,7 +24,7 @@ class BirdWatcher {
 
             final int multiplier = (dayCount - 1) / DAYS_IN_WEEK;
 
-            int lastWeekStartIndex = (DAYS_IN_WEEK * multiplier);
+            final int lastWeekStartIndex = (DAYS_IN_WEEK * multiplier);
 
             lastWeekBirdsPerDay = new int[dayCount - lastWeekStartIndex];
 

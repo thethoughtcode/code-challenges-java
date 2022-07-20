@@ -1,6 +1,7 @@
 package io.sampadadubey.java.exercism;
 
 import java.util.Arrays;
+import java.util.Locale;
 
 public enum ResistorColorCode {
 
@@ -48,7 +49,7 @@ public enum ResistorColorCode {
         final String[] colors = new String[values.length];
 
         for (int index = 0; index < values.length; index++) {
-            colors[index] = values[index].name().toLowerCase();
+            colors[index] = values[index].name().toLowerCase(Locale.getDefault());
         }
 
         return colors;

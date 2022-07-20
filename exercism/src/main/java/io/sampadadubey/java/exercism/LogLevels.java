@@ -1,5 +1,6 @@
 package io.sampadadubey.java.exercism;
 
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,17 +12,17 @@ public class LogLevels {
 
     static final int MATCHER_GROUP_LOG_MESSAGE = 2;
 
-    public static String message(final String logLine) {
+    public String message(final String logLine) {
         final Matcher matcher = LOG_PATTERN.matcher(logLine);
         return matcher.matches() ? matcher.group(MATCHER_GROUP_LOG_MESSAGE).trim() : "";
     }
 
-    public static String logLevel(final String logLine) {
+    public String logLevel(final String logLine) {
         final Matcher matcher = LOG_PATTERN.matcher(logLine);
-        return matcher.matches() ? matcher.group(MATCHER_GROUP_LOG_LEVEL).trim().toLowerCase() : "";
+        return matcher.matches() ? matcher.group(MATCHER_GROUP_LOG_LEVEL).trim().toLowerCase(Locale.getDefault()) : "";
     }
 
-    public static String reformat(final String logLine) {
+    public String reformat(final String logLine) {
         final String logLevel = logLevel(logLine);
         final String message = message(logLine);
         return String.format("%s (%s)", message, logLevel);

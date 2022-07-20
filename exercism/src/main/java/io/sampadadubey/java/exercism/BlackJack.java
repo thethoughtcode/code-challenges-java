@@ -7,6 +7,8 @@ public class BlackJack {
 
     static final int SCORE_BLACKJACK = 21;
 
+    static final int SCORE_TWENTY = 20;
+
     static final int SCORE_SEVENTEEN = 17;
 
     static final int SCORE_ELEVEN = 11;
@@ -74,10 +76,10 @@ public class BlackJack {
     // the other functions together in a
     // complete decision tree for the first turn.
     public String firstTurn(final String card1, final String card2, final String dealerCard) {
-        int handScore = parseCard(card1) + parseCard(card2);
-        int dealerScore = parseCard(dealerCard);
+        final int handScore = parseCard(card1) + parseCard(card2);
+        final int dealerScore = parseCard(dealerCard);
 
-        if (20 < handScore) {
+        if (SCORE_TWENTY < handScore) {
             return largeHand(isBlackjack(card1, card2), dealerScore);
         } else {
             return smallHand(handScore, dealerScore);
@@ -128,7 +130,7 @@ enum Card {
         return Card.UNKNOWN;
     }
 
-    private Card(final int value) {
+    Card(final int value) {
         this.value = value;
     }
 

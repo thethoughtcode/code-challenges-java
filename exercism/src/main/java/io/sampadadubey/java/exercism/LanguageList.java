@@ -1,6 +1,7 @@
 package io.sampadadubey.java.exercism;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -9,12 +10,7 @@ public class LanguageList {
 
     private final List<String> languages = new ArrayList<>();
 
-    private final Set<String> excitingLanguages = new HashSet<String>() {
-        {
-            add("Java");
-            add("Kotlin");
-        }
-    };
+    private final Set<String> excitingLanguages = new HashSet<>(Arrays.asList("Java", "Kotlin"));
 
     public boolean isEmpty() {
         return languages.isEmpty();

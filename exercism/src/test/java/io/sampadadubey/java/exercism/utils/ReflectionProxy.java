@@ -68,8 +68,8 @@ public abstract class ReflectionProxy {
             hasMethod = false;
         } else {
             try {
-                Method m = targetClass.getDeclaredMethod(name, parameterTypes);
-                hasMethod = m != null;
+                final Method method = targetClass.getDeclaredMethod(name, parameterTypes);
+                hasMethod = method != null;
             } catch (final NoSuchMethodException e) {
                 hasMethod = false;
             }
@@ -90,8 +90,8 @@ public abstract class ReflectionProxy {
             isMethodPublic = false;
         } else {
             try {
-                Method m = targetClass.getDeclaredMethod(name, parameterTypes);
-                isMethodPublic = Modifier.isPublic(m.getModifiers());
+                final Method method = targetClass.getDeclaredMethod(name, parameterTypes);
+                isMethodPublic = Modifier.isPublic(method.getModifiers());
             } catch (final NoSuchMethodException e) {
                 isMethodPublic = false;
             }
@@ -118,25 +118,25 @@ public abstract class ReflectionProxy {
      * @param <T> The result type we expect the method to be
      * @return The value returned by the method
      */
-    protected  <T> T invokeMethod(final String methodName, final Class<?>[] parameterTypes, Object... parameterValues) {
+    protected  <T> T invokeMethod(final String methodName, final Class<?>[] parameterTypes, final Object... parameterValues) {
         if (target == null) {
             return null;
         }
         try {
             // getDeclaredMethod is used to get protected/private methods
-            Method method = target.getClass().getDeclaredMethod(methodName, parameterTypes);
+            final Method method = target.getClass().getDeclaredMethod(methodName, parameterTypes);
             method.setAccessible(true);
             return (T) method.invoke(target, parameterValues);
-        } catch (NoSuchMethodException e) {
+        } catch (final NoSuchMethodException e) {
             try {
                 // try getting it from parent class, but only public methods will work
-                Method method = target.getClass().getMethod(methodName, parameterTypes);
+                final Method method = target.getClass().getMethod(methodName, parameterTypes);
                 method.setAccessible(true);
                 return (T) method.invoke(target, parameterValues);
-            } catch (Exception ex) {
+            } catch (final Exception ex) {
                 return null;
             }
-        } catch (Exception e) {
+        } catch (final Exception e) {
             return null;
         }
     }
@@ -146,17 +146,17 @@ public abstract class ReflectionProxy {
      * @param args The list of constructor parameters
      * @return An instance of the target class, if found, or null otherwise
      */
-    private Object instantiateTarget(Object... args) {
-        Class<?> targetClass = getTargetClass();
+    private Object instantiateTarget(final Object... args) {
+        final Class<?> targetClass = getTargetClass();
         if (targetClass == null) {
             return null;
         }
-        Constructor<?>[] constructors = getAllConstructors();
-        for (Constructor<?> c : constructors) {
-            if (c.getParameterCount() == args.length) {
+        final Constructor<?>[] constructors = getAllConstructors();
+        for (final Constructor<?> constructor : constructors) {
+            if (constructor.getParameterCount() == args.length) {
                 try {
-                    return c.newInstance(args);
-                } catch (Exception e) {
+                    return constructor.newInstance(args);
+                } catch (final Exception e) {
                     // do nothing;
                 }
             }
@@ -169,7 +169,7 @@ public abstract class ReflectionProxy {
      * @return A list with all constructor definitions
      */
     private Constructor<?>[] getAllConstructors() {
-        Class<?> targetClass = getTargetClass();
+        final Class<?> targetClass = getTargetClass();
         if (targetClass == null) {
             return new Constructor<?>[]{};
         }
@@ -183,7 +183,7 @@ public abstract class ReflectionProxy {
      * The default constructor, for when you have already an instance of the target class
      * @param target An instance of the target class
      */
-    protected ReflectionProxy(Object target) {
+    protected ReflectionProxy(final Object target) {
         this.target = target;
     }
 
@@ -200,8 +200,8 @@ public abstract class ReflectionProxy {
      * @param anInterface The interface to check
      * @return True if the class implements the referred interface, false otherwise
      */
-    public boolean implementsInterface(Class<?> anInterface) {
-        Class<?> targetClass = getTargetClass();
+    public boolean implementsInterface(final Class<?> anInterface) {
+        final Class<?> targetClass = getTargetClass();
         if (targetClass == null || anInterface == null) {
             return false;
         }
@@ -213,15 +213,15 @@ public abstract class ReflectionProxy {
      * @param name The name of the property to find
      * @return True if the property is found, false otherwise
      */
-    public boolean hasProperty(String name) {
-        Class<?> targetClass = getTargetClass();
+    public boolean hasProperty(final String name) {
+        final Class<?> targetClass = getTargetClass();
         if (targetClass == null || name == null) {
             return false;
         }
         try {
-            Field f = targetClass.getDeclaredField(name);
-            return f != null;
-        } catch (NoSuchFieldException e) {
+            Field field = targetClass.getDeclaredField(name);
+            return field != null;
+        } catch (final NoSuchFieldException e) {
             return false;
         }
     }
@@ -232,7 +232,7 @@ public abstract class ReflectionProxy {
      * @param type The type you are expecting the property to be
      * @return True if the property is found and has the specified type, false otherwise
      */
-    public boolean isPropertyOfType(String name, Class<?> type) {
+    public boolean isPropertyOfType(final String name, final Class<?> type) {
         return isPropertyOfType(name, type, null);
     }
 
@@ -243,26 +243,26 @@ public abstract class ReflectionProxy {
      * @param parameterizedType The parameterized property (eg. String)
      * @return True if the parameterized type matches the desired type, false otherwise
      */
-    public boolean isPropertyOfType(String name, Class<?> type, Class<?> parameterizedType) {
-        Class<?> targetClass = getTargetClass();
+    public boolean isPropertyOfType(final String name, final Class<?> type, final Class<?> parameterizedType) {
+        final Class<?> targetClass = getTargetClass();
         if (targetClass == null || name == null || type == null) {
             return false;
         }
         try {
-            Field f = targetClass.getDeclaredField(name);
-            if (!f.getType().equals(type)) {
+            final Field field = targetClass.getDeclaredField(name);
+            if (!field.getType().equals(type)) {
                 return false;
             }
             if (parameterizedType == null) {
                 return true;
             }
-            if (!(f.getGenericType() instanceof ParameterizedType)) {
+            if (!(field.getGenericType() instanceof ParameterizedType)) {
                 return false;
             }
-            ParameterizedType pType = (ParameterizedType) f.getGenericType();
+            final ParameterizedType pType = (ParameterizedType) field.getGenericType();
             return pType.getActualTypeArguments()[0].equals(parameterizedType);
 
-        } catch (NoSuchFieldException e) {
+        } catch (final NoSuchFieldException e) {
             return false;
         }
     }
@@ -273,14 +273,14 @@ public abstract class ReflectionProxy {
      * @return True if the property exists and is private, false otherwise
      */
     public boolean isPropertyPrivate(String name) {
-        Class<?> targetClass = getTargetClass();
+        final Class<?> targetClass = getTargetClass();
         if (targetClass == null || name == null) {
             return false;
         }
         try {
-            Field f = targetClass.getDeclaredField(name);
-            return Modifier.isPrivate(f.getModifiers());
-        } catch (NoSuchFieldException e) {
+            final Field field = targetClass.getDeclaredField(name);
+            return Modifier.isPrivate(field.getModifiers());
+        } catch (final NoSuchFieldException e) {
             return false;
         }
     }
@@ -293,26 +293,26 @@ public abstract class ReflectionProxy {
      * @param parameterTypes A list of method parameter types
      * @return True if the method returns the correct parameterized collection, false otherwise
      */
-    public boolean isMethodReturnType(Class<?> returnType, Class<?> parameterizedType,
-                                      String name, Class<?>... parameterTypes) {
-        Class<?> targetClass = getTargetClass();
+    public boolean isMethodReturnType(final Class<?> returnType, final Class<?> parameterizedType,
+                                      final String name, final Class<?>... parameterTypes) {
+        final Class<?> targetClass = getTargetClass();
         if (targetClass == null || name == null) {
             return false;
         }
         try {
-            Method m = targetClass.getDeclaredMethod(name, parameterTypes);
-            if (!m.getReturnType().equals(returnType)) {
+            final Method method = targetClass.getDeclaredMethod(name, parameterTypes);
+            if (!method.getReturnType().equals(returnType)) {
                 return false;
             }
             if (parameterizedType == null) {
                 return true;
             }
-            if (!(m.getGenericReturnType() instanceof ParameterizedType)) {
+            if (!(method.getGenericReturnType() instanceof ParameterizedType)) {
                 return false;
             }
-            ParameterizedType pType = (ParameterizedType) m.getGenericReturnType();
+            final ParameterizedType pType = (ParameterizedType) method.getGenericReturnType();
             return pType.getActualTypeArguments()[0].equals(parameterizedType);
-        } catch (NoSuchMethodException e) {
+        } catch (final NoSuchMethodException e) {
             return false;
         }
     }
@@ -322,15 +322,15 @@ public abstract class ReflectionProxy {
      * @param parameterTypes The list of desired parameter types
      * @return True if the constructor exists, false otherwise
      */
-    public boolean hasConstructor(Class<?>... parameterTypes) {
-        Class<?> targetClass = getTargetClass();
+    public boolean hasConstructor(final Class<?>... parameterTypes) {
+        final Class<?> targetClass = getTargetClass();
         if (targetClass == null) {
             return false;
         }
         try {
-            Constructor<?> c = targetClass.getDeclaredConstructor(parameterTypes);
-            return c != null;
-        } catch (NoSuchMethodException e) {
+            final Constructor<?> constructor = targetClass.getDeclaredConstructor(parameterTypes);
+            return constructor != null;
+        } catch (final NoSuchMethodException e) {
             return false;
         }
     }
@@ -340,15 +340,15 @@ public abstract class ReflectionProxy {
      * @param parameterTypes A list of parameter types
      * @return True if the constructor is found and is public, false otherwise
      */
-    public boolean isConstructorPublic(Class<?>... parameterTypes) {
-        Class<?> targetClass = getTargetClass();
+    public boolean isConstructorPublic(final Class<?>... parameterTypes) {
+        final Class<?> targetClass = getTargetClass();
         if (targetClass == null) {
             return false;
         }
         try {
-            Constructor<?> c = targetClass.getDeclaredConstructor(parameterTypes);
-            return Modifier.isPublic(c.getModifiers());
-        } catch (NoSuchMethodException e) {
+            final Constructor<?> constructor = targetClass.getDeclaredConstructor(parameterTypes);
+            return Modifier.isPublic(constructor.getModifiers());
+        } catch (final NoSuchMethodException e) {
             return false;
         }
     }
@@ -363,10 +363,10 @@ public abstract class ReflectionProxy {
             return false;
         }
         try {
-            Method method = target.getClass().getMethod("equals", Object.class);
+            final Method method = target.getClass().getMethod("equals", Object.class);
             method.setAccessible(true);
             return (boolean) method.invoke(target, ((ReflectionProxy) obj).getTarget());
-        } catch (Exception e) {
+        } catch (final Exception e) {
             return false;
         }
     }
@@ -380,10 +380,10 @@ public abstract class ReflectionProxy {
             return 0;
         }
         try {
-            Method method = target.getClass().getMethod("hashCode");
+            final Method method = target.getClass().getMethod("hashCode");
             method.setAccessible(true);
             return (int) method.invoke(target);
-        } catch (Exception e) {
+        } catch (final Exception e) {
             return 0;
         }
     }
@@ -402,12 +402,12 @@ public abstract class ReflectionProxy {
      * @param <T> The type we are expecting it to be
      * @return The value of the property (if it exists)
      */
-    protected <T> T getPropertyValue(String propertyName) {
+    protected <T> T getPropertyValue(final String propertyName) {
         if (target == null || !hasProperty(propertyName)) {
             return null;
         }
         try {
-            Field field = target.getClass().getDeclaredField(propertyName);
+            final Field field = target.getClass().getDeclaredField(propertyName);
             field.setAccessible(true);
             return (T) field.get(target);
         } catch (Exception e) {
@@ -420,7 +420,7 @@ public abstract class ReflectionProxy {
      * @return True if the target class exists and is abstract, false otherwise
      */
     public boolean isAbstract() {
-        Class<?> targetClass = getTargetClass();
+        final Class<?> targetClass = getTargetClass();
         if (targetClass == null) {
             return false;
         }
@@ -432,15 +432,15 @@ public abstract class ReflectionProxy {
      * @param className The fully qualified name of the class it should extend
      * @return True if the target class extends the specified one, false otherwise
      */
-    public boolean extendsClass(String className) {
-        Class<?> targetClass = getTargetClass();
+    public boolean extendsClass(final String className) {
+        final Class<?> targetClass = getTargetClass();
         if (targetClass == null) {
             return false;
         }
         try {
-            Class<?> parentClass = Class.forName(className);
+            final Class<?> parentClass = Class.forName(className);
             return parentClass.isAssignableFrom(targetClass);
-        } catch (ClassNotFoundException e) {
+        } catch (final ClassNotFoundException e) {
             return false;
         }
     }
@@ -450,7 +450,7 @@ public abstract class ReflectionProxy {
      * @return True if the target class exists and is an interface, false otherwise
      */
     public boolean isInterface() {
-        Class<?> targetClass = getTargetClass();
+        final Class<?> targetClass = getTargetClass();
         if (targetClass == null) {
             return false;
         }
@@ -463,15 +463,15 @@ public abstract class ReflectionProxy {
      * @param parameterTypes The list of method parameter types
      * @return True if the method exists and is abstract, false otherwise
      */
-    public boolean isMethodAbstract(String name, Class<?>... parameterTypes) {
-        Class<?> targetClass = getTargetClass();
+    public boolean isMethodAbstract(final String name, final Class<?>... parameterTypes) {
+        final Class<?> targetClass = getTargetClass();
         if (targetClass == null || name == null) {
             return false;
         }
         try {
-            Method m = targetClass.getDeclaredMethod(name, parameterTypes);
-            return Modifier.isAbstract(m.getModifiers());
-        } catch (NoSuchMethodException e) {
+            final Method method = targetClass.getDeclaredMethod(name, parameterTypes);
+            return Modifier.isAbstract(method.getModifiers());
+        } catch (final NoSuchMethodException e) {
             return false;
         }
     }
@@ -482,15 +482,15 @@ public abstract class ReflectionProxy {
      * @param parameterTypes The list of method parameter types
      * @return True if the method exists and is protected, false otherwise
      */
-    public boolean isMethodProtected(String name, Class<?>... parameterTypes) {
-        Class<?> targetClass = getTargetClass();
+    public boolean isMethodProtected(final String name, final Class<?>... parameterTypes) {
+        final Class<?> targetClass = getTargetClass();
         if (targetClass == null || name == null) {
             return false;
         }
         try {
-            Method m = targetClass.getDeclaredMethod(name, parameterTypes);
-            return Modifier.isProtected(m.getModifiers());
-        } catch (NoSuchMethodException e) {
+            final Method method = targetClass.getDeclaredMethod(name, parameterTypes);
+            return Modifier.isProtected(method.getModifiers());
+        } catch (final NoSuchMethodException e) {
             return false;
         }
     }

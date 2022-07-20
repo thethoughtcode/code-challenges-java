@@ -35,7 +35,7 @@ class NaturalNumberTest {
 
     @Test
     void testLargeAbundantNumberIsClassifiedCorrectly() {
-        assertThat(new NaturalNumber(33440335).getClassification()).isEqualTo(Classification.ABUNDANT);
+        assertThat(new NaturalNumber(33550335).getClassification()).isEqualTo(Classification.ABUNDANT);
     }
 
     @Test

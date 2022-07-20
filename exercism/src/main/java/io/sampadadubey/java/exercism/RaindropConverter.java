@@ -2,26 +2,32 @@ package io.sampadadubey.java.exercism;
 
 public class RaindropConverter {
 
+    static final int THREE = 3;
+
+    static final int FIVE = 5;
+
+    static final int SEVEN = 7;
+
     String convert(final int number) {
 
-        String result = "";
+        final StringBuilder result = new StringBuilder();
 
-        if (number % 3 == 0) {
-            result += "Pling";
+        if (number % THREE == 0) {
+            result.append("Pling");
         }
 
-        if (number % 5 == 0) {
-            result += "Plang";
+        if (number % FIVE == 0) {
+            result.append("Plang");
         }
 
-        if (number % 7 == 0) {
-            result += "Plong";
+        if (number % SEVEN == 0) {
+            result.append("Plong");
         }
 
-        if (result.isEmpty()) {
-            result += String.valueOf(number);
+        if (result.length() == 0) {
+            result.append(String.valueOf(number));
         }
 
-        return result;
+        return result.toString();
     }
 }

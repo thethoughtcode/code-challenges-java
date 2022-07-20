@@ -1,5 +1,8 @@
 package io.sampadadubey.java.exercism;
 
+import static io.sampadadubey.java.exercism.RaindropConverter.PLANG;
+import static io.sampadadubey.java.exercism.RaindropConverter.PLING;
+import static io.sampadadubey.java.exercism.RaindropConverter.PLONG;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
@@ -15,22 +18,22 @@ class RaindropConverterTest {
 
     @Test
     void soundFor3IsPling() {
-        assertThat(raindropConverter.convert(3)).isEqualTo("Pling");
+        assertThat(raindropConverter.convert(3)).isEqualTo(PLING);
     }
 
     @Test
     void soundFor5IsPlang() {
-        assertThat(raindropConverter.convert(5)).isEqualTo("Plang");
+        assertThat(raindropConverter.convert(5)).isEqualTo(PLANG);
     }
 
     @Test
     void soundFor7IsPlong() {
-        assertThat(raindropConverter.convert(7)).isEqualTo("Plong");
+        assertThat(raindropConverter.convert(7)).isEqualTo(PLONG);
     }
 
     @Test
     void soundFor6IsPlingAsItHasFactor3() {
-        assertThat(raindropConverter.convert(6)).isEqualTo("Pling");
+        assertThat(raindropConverter.convert(6)).isEqualTo(PLING);
     }
 
     @Test
@@ -40,17 +43,17 @@ class RaindropConverterTest {
 
     @Test
     void soundFor9IsPlingAsItHasFactor3() {
-        assertThat(raindropConverter.convert(9)).isEqualTo("Pling");
+        assertThat(raindropConverter.convert(9)).isEqualTo(PLING);
     }
 
     @Test
     void soundFor10IsPlangAsItHasFactor5() {
-        assertThat(raindropConverter.convert(10)).isEqualTo("Plang");
+        assertThat(raindropConverter.convert(10)).isEqualTo(PLANG);
     }
 
     @Test
     void soundFor14IsPlongAsItHasFactor7() {
-        assertThat(raindropConverter.convert(14)).isEqualTo("Plong");
+        assertThat(raindropConverter.convert(14)).isEqualTo(PLONG);
     }
 
     @Test
@@ -65,12 +68,12 @@ class RaindropConverterTest {
 
     @Test
     void soundFor25IsPlangAsItHasFactor5() {
-        assertThat(raindropConverter.convert(25)).isEqualTo("Plang");
+        assertThat(raindropConverter.convert(25)).isEqualTo(PLANG);
     }
 
     @Test
     void soundFor27IsPlingAsItHasFactor3() {
-        assertThat(raindropConverter.convert(27)).isEqualTo("Pling");
+        assertThat(raindropConverter.convert(27)).isEqualTo(PLING);
     }
 
     @Test
@@ -80,7 +83,7 @@ class RaindropConverterTest {
 
     @Test
     void soundFor49IsPlongAsItHasFactor7() {
-        assertThat(raindropConverter.convert(49)).isEqualTo("Plong");
+        assertThat(raindropConverter.convert(49)).isEqualTo(PLONG);
     }
 
     @Test
@@ -95,6 +98,6 @@ class RaindropConverterTest {
 
     @Test
     void soundFor3125IsPlangAsItHasFactor5() {
-        assertThat(raindropConverter.convert(3125)).isEqualTo("Plang");
+        assertThat(raindropConverter.convert(3125)).isEqualTo(PLANG);
     }
 }

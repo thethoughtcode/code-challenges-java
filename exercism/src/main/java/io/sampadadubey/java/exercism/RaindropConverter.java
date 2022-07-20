@@ -8,20 +8,26 @@ public class RaindropConverter {
 
     static final int SEVEN = 7;
 
+    static final String PLING = "Pling";
+
+    static final String PLANG = "Plang";
+
+    static final String PLONG = "Plong";
+
     String convert(final int number) {
 
         final StringBuilder result = new StringBuilder();
 
         if (number % THREE == 0) {
-            result.append("Pling");
+            result.append(PLING);
         }
 
         if (number % FIVE == 0) {
-            result.append("Plang");
+            result.append(PLANG);
         }
 
         if (number % SEVEN == 0) {
-            result.append("Plong");
+            result.append(PLONG);
         }
 
         if (result.length() == 0) {

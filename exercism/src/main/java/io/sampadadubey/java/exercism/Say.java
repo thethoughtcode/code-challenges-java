@@ -10,6 +10,8 @@ import java.util.Map;
 
 public class Say {
 
+    static final int TWENTY = 20;
+
     static final List<NamedNumber> NUMBERS = new ArrayList<>() {
         {
             add(NamedNumber.QUINTILLION);
@@ -23,6 +25,21 @@ public class Say {
 
     public String say(final long number) {
 
+        validate(number);
+
+        final String result;
+
+        if (number != 0) {
+            result = sayNumber(number);
+        } else {
+            result = NamedNumber.getString(number);
+        }
+
+        return result;
+    }
+
+    private void validate(final long number) {
+
         if (number < 0) {
             throw new IllegalArgumentException("negative numbers not allowed");
         }
@@ -30,39 +47,38 @@ public class Say {
         if (number >= NamedNumber.TRILLION.getNumber()) {
             throw new IllegalArgumentException("number too big");
         }
+    }
+
+    private String sayNumber(final long number) {
 
         final StringBuilder result = new StringBuilder();
 
-        if (number != 0) {
-            long value = number;
+        long value = number;
 
-            for (int index = 0; value != 0 && index < NUMBERS.size(); index++) {
+        for (int index = 0; value != 0 && index < NUMBERS.size(); index++) {
 
-                final long divisor = NUMBERS.get(index).getNumber();
+            final long divisor = NUMBERS.get(index).getNumber();
 
-                final long currentNumber = value / divisor;
+            final long currentNumber = value / divisor;
 
-                value = value % divisor;
+            value = value % divisor;
 
-                if (currentNumber != 0) {
-                    if (currentNumber >= NamedNumber.HUNDRED.getNumber()) {
-                        result.append(
-                                format("%s %s ", sayThreeDigitNumber(currentNumber), NamedNumber.getString(divisor)));
-                    } else {
-                        result.append(
-                                format("%s %s ", sayTwoDigitNumber(currentNumber), NamedNumber.getString(divisor)));
-                    }
-                } else if (value < NamedNumber.THOUSAND.getNumber()) {
-                    result.append(sayThreeDigitNumber(number) + " ");
-                    value = 0;
+            if (currentNumber != 0) {
+                if (currentNumber >= NamedNumber.HUNDRED.getNumber()) {
+                    result.append(
+                            format("%s %s ", sayThreeDigitNumber(currentNumber), NamedNumber.getString(divisor)));
+                } else {
+                    result.append(
+                            format("%s %s ", sayTwoDigitNumber(currentNumber), NamedNumber.getString(divisor)));
                 }
+            } else if (value < NamedNumber.THOUSAND.getNumber()) {
+                result.append(sayThreeDigitNumber(number) + " ");
+                value = 0;
             }
+        }
 
-            if (value != 0) {
-                result.append(sayThreeDigitNumber(value));
-            }
-        } else {
-            result.append(NamedNumber.getString(number));
+        if (value != 0) {
+            result.append(sayThreeDigitNumber(value));
         }
 
         return result.toString().trim();
@@ -93,7 +109,7 @@ public class Say {
 
         final StringBuilder result = new StringBuilder();
 
-        if (number >= 20) {
+        if (number >= TWENTY) {
             final int tensValue = ((int) Math.floor(number / 10.0)) * 10;
             final int unitsValue = (int) number % 10;
 
@@ -106,14 +122,6 @@ public class Say {
         }
 
         return result.toString().trim();
-    }
-
-    public static void main(String[] args) {
-        Say say = new Say();
-
-        for (int i = 1; i < 111111; i++) {
-            System.out.println(say.say(i));
-        }
     }
 }
 

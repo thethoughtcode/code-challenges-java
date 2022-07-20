@@ -4,7 +4,7 @@ public class LeapYear {
 
     boolean isLeapYear(final int year) {
 
-        boolean leapYear = false;
+        final boolean leapYear;
 
         if (year % 100 == 0) {
             leapYear = year % 400 == 0;

@@ -5,14 +5,14 @@ import java.util.Map;
 
 class RnaTranscription {
 
-    static final Map<Character, String> DNA_TO_RNA = new HashMap<>() {
-        {
-            put('G', "C");
-            put('C', "G");
-            put('T', "A");
-            put('A', "U");
-        }
-    };
+    static final Map<Character, String> DNA_TO_RNA = new HashMap<>(4);
+
+    static {
+        DNA_TO_RNA.put('G', "C");
+        DNA_TO_RNA.put('C', "G");
+        DNA_TO_RNA.put('T', "A");
+        DNA_TO_RNA.put('A', "U");
+    }
 
     String transcribe(final String dnaStrand) {
 

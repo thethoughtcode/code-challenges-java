@@ -7,75 +7,75 @@ import java.math.BigInteger;
 
 import org.junit.jupiter.api.Test;
 
-public class GrainsTest {
+class GrainsTest {
 
     private Grains grains = new Grains();
 
     @Test
-    public void countAtSquare1() {
+    void countAtSquare1() {
         final BigInteger result = grains.grainsOnSquare(1);
         assertThat(result).isEqualTo(new BigInteger("1"));
     }
 
     @Test
-    public void countAtSquare2() {
+    void countAtSquare2() {
         final BigInteger result = grains.grainsOnSquare(2);
         assertThat(result).isEqualTo(new BigInteger("2"));
     }
 
     @Test
-    public void countAtSquare3() {
+    void countAtSquare3() {
         final BigInteger result = grains.grainsOnSquare(3);
         assertThat(result).isEqualTo(new BigInteger("4"));
     }
 
     @Test
-    public void countAtSquare4() {
+    void countAtSquare4() {
         final BigInteger result = grains.grainsOnSquare(4);
         assertThat(result).isEqualTo(new BigInteger("8"));
     }
 
     @Test
-    public void countAtSquare16() {
+    void countAtSquare16() {
         final BigInteger result = grains.grainsOnSquare(16);
         assertThat(result).isEqualTo(new BigInteger("32768"));
     }
 
     @Test
-    public void countAtSquare32() {
+    void countAtSquare32() {
         final BigInteger result = grains.grainsOnSquare(32);
         assertThat(result).isEqualTo(new BigInteger("2147483648"));
     }
 
     @Test
-    public void countAtSquare64() {
+    void countAtSquare64() {
         final BigInteger result = grains.grainsOnSquare(64);
         assertThat(result).isEqualTo(new BigInteger("9223372036854775808"));
     }
 
     @Test
-    public void errorOnNullBoardSize() {
+    void errorOnNullBoardSize() {
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> grains.grainsOnSquare(0))
                 .withMessage("square must be between 1 and 64");
     }
 
     @Test
-    public void errorOnNegativeBoardSize() {
+    void errorOnNegativeBoardSize() {
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> grains.grainsOnSquare(-1))
                 .withMessage("square must be between 1 and 64");
     }
 
     @Test
-    public void errorOnExcessiveBoardSize() {
+    void errorOnExcessiveBoardSize() {
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> grains.grainsOnSquare(65))
                 .withMessage("square must be between 1 and 64");
     }
 
     @Test
-    public void totalNumberOfGrainsOnABoard() {
+    void totalNumberOfGrainsOnABoard() {
         final BigInteger total = grains.grainsOnBoard();
         assertThat(total).isEqualTo(new BigInteger("18446744073709551615"));
     }

@@ -5,98 +5,98 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-public class DnDCharacterTest {
+class DnDCharacterTest {
 
     private final DnDCharacter dndCharacter = new DnDCharacter();
 
     @Test
-    public void testAbilityModifierForScore3IsNegative4() {
+    void testAbilityModifierForScore3IsNegative4() {
         assertEquals(-4, dndCharacter.modifier(3));
     }
 
     @Test
-    public void testAbilityModifierForScore4IsNegative3() {
+    void testAbilityModifierForScore4IsNegative3() {
         assertEquals(-3, dndCharacter.modifier(4));
     }
 
     @Test
-    public void testAbilityModifierForScore5IsNegative3() {
+    void testAbilityModifierForScore5IsNegative3() {
         assertEquals(-3, dndCharacter.modifier(5));
     }
 
     @Test
-    public void testAbilityModifierForScore6IsNegative2() {
+    void testAbilityModifierForScore6IsNegative2() {
         assertEquals(-2, dndCharacter.modifier(6));
     }
 
     @Test
-    public void testAbilityModifierForScore7IsNegative2() {
+    void testAbilityModifierForScore7IsNegative2() {
         assertEquals(-2, dndCharacter.modifier(7));
     }
 
     @Test
-    public void testAbilityModifierForScore8IsNegative1() {
+    void testAbilityModifierForScore8IsNegative1() {
         assertEquals(-1, dndCharacter.modifier(8));
     }
 
     @Test
-    public void testAbilityModifierForScore9IsNegative1() {
+    void testAbilityModifierForScore9IsNegative1() {
         assertEquals(-1, dndCharacter.modifier(9));
     }
 
     @Test
-    public void testAbilityModifierForScore10Is0() {
+    void testAbilityModifierForScore10Is0() {
         assertEquals(0, dndCharacter.modifier(10));
     }
 
     @Test
-    public void testAbilityModifierForScore11Is0() {
+    void testAbilityModifierForScore11Is0() {
         assertEquals(0, dndCharacter.modifier(11));
     }
 
     @Test
-    public void testAbilityModifierForScore12Is1() {
+    void testAbilityModifierForScore12Is1() {
         assertEquals(1, dndCharacter.modifier(12));
     }
 
     @Test
-    public void testAbilityModifierForScore13Is1() {
+    void testAbilityModifierForScore13Is1() {
         assertEquals(1, dndCharacter.modifier(13));
     }
 
     @Test
-    public void testAbilityModifierForScore14Is2() {
+    void testAbilityModifierForScore14Is2() {
         assertEquals(2, dndCharacter.modifier(14));
     }
 
     @Test
-    public void testAbilityModifierForScore15Is2() {
+    void testAbilityModifierForScore15Is2() {
         assertEquals(2, dndCharacter.modifier(15));
     }
 
     @Test
-    public void testAbilityModifierForScore16Is3() {
+    void testAbilityModifierForScore16Is3() {
         assertEquals(3, dndCharacter.modifier(16));
     }
 
     @Test
-    public void testAbilityModifierForScore17Is3() {
+    void testAbilityModifierForScore17Is3() {
         assertEquals(3, dndCharacter.modifier(17));
     }
 
     @Test
-    public void testAbilityModifierForScore18Is4() {
+    void testAbilityModifierForScore18Is4() {
         assertEquals(4, dndCharacter.modifier(18));
     }
 
     @Test
-    public void testRandomAbilityIsWithinRange() {
+    void testRandomAbilityIsWithinRange() {
         final int score = dndCharacter.ability();
         assertTrue(score > 2 && score < 19);
     }
 
     @Test
-    public void testRandomCharacterIsValid() {
+    void testRandomCharacterIsValid() {
 
         for (int index = 0; index < 1000; index++) {
 
@@ -113,7 +113,7 @@ public class DnDCharacterTest {
     }
 
     @Test
-    public void testEachAbilityIsOnlyCalculatedOnce() {
+    void testEachAbilityIsOnlyCalculatedOnce() {
         assertEquals(dndCharacter.getStrength(), dndCharacter.getStrength());
     }
 }

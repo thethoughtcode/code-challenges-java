@@ -20,7 +20,7 @@ public abstract class ReflectionProxy {
      * A constructor to instantiate the target class with parameters
      * @param args An array of parameters matching the constructor from the target class
      */
-    protected ReflectionProxy(Object... args) {
+    protected ReflectionProxy(final Object... args) {
         this.target = instantiateTarget(args);
     }
 
@@ -43,11 +43,16 @@ public abstract class ReflectionProxy {
      * @return The target class if it exists, null otherwise
      */
     public Class<?> getTargetClass() {
+
+        Class<?> result = null;
+
         try {
-            return forName(this.getTargetClassName());
-        } catch (ClassNotFoundException e) {
-            return null;
+            result = forName(this.getTargetClassName());
+        } catch (final ClassNotFoundException e) {
+            result = null;
         }
+
+        return result;
     }
 
     /**
@@ -56,17 +61,20 @@ public abstract class ReflectionProxy {
      * @param parameterTypes The list of parameter types
      * @return True if the method is found, false otherwise
      */
-    public boolean hasMethod(String name, Class<?>... parameterTypes) {
-        Class<?> targetClass = getTargetClass();
+    public boolean hasMethod(final String name, final Class<?>... parameterTypes) {
+        final Class<?> targetClass = getTargetClass();
+        boolean hasMethod = false;
         if (targetClass == null || name == null) {
-            return false;
+            hasMethod = false;
+        } else {
+            try {
+                Method m = targetClass.getDeclaredMethod(name, parameterTypes);
+                hasMethod = m != null;
+            } catch (final NoSuchMethodException e) {
+                hasMethod = false;
+            }
         }
-        try {
-            Method m = targetClass.getDeclaredMethod(name, parameterTypes);
-            return m != null;
-        } catch (NoSuchMethodException e) {
-            return false;
-        }
+        return hasMethod;
     }
 
     /**
@@ -75,17 +83,20 @@ public abstract class ReflectionProxy {
      * @param parameterTypes A list of method parameters
      * @return True if the method exists and is public, false otherwise
      */
-    public boolean isMethodPublic(String name, Class<?>... parameterTypes) {
-        Class<?> targetClass = getTargetClass();
+    public boolean isMethodPublic(final String name, final Class<?>... parameterTypes) {
+        final Class<?> targetClass = getTargetClass();
+        boolean isMethodPublic = false;
         if (targetClass == null || name == null) {
-            return false;
+            isMethodPublic = false;
+        } else {
+            try {
+                Method m = targetClass.getDeclaredMethod(name, parameterTypes);
+                isMethodPublic = Modifier.isPublic(m.getModifiers());
+            } catch (final NoSuchMethodException e) {
+                isMethodPublic = false;
+            }
         }
-        try {
-            Method m = targetClass.getDeclaredMethod(name, parameterTypes);
-            return Modifier.isPublic(m.getModifiers());
-        } catch (NoSuchMethodException e) {
-            return false;
-        }
+        return isMethodPublic;
     }
 
     /**
@@ -95,7 +106,7 @@ public abstract class ReflectionProxy {
      * @param parameterTypes The list of method parameters
      * @return
      */
-    public boolean isMethodReturnType(Class<?> returnType, String name, Class<?>... parameterTypes) {
+    public boolean isMethodReturnType(final Class<?> returnType, final String name, final Class<?>... parameterTypes) {
         return isMethodReturnType(returnType, null, name, parameterTypes);
     }
 
@@ -107,7 +118,7 @@ public abstract class ReflectionProxy {
      * @param <T> The result type we expect the method to be
      * @return The value returned by the method
      */
-    protected  <T> T invokeMethod(String methodName, Class<?>[] parameterTypes, Object... parameterValues) {
+    protected  <T> T invokeMethod(final String methodName, final Class<?>[] parameterTypes, Object... parameterValues) {
         if (target == null) {
             return null;
         }

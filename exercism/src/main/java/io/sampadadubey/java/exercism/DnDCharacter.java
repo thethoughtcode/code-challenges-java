@@ -7,11 +7,6 @@ public class DnDCharacter {
 
     static final Random DICE = new Random();
 
-    static int rollDice() {
-        final int rolledValue = DICE.nextInt(6);
-        return rolledValue != 0 ? rolledValue : 1;
-    }
-
     private final int strength;
 
     private final int dexterity;
@@ -23,6 +18,11 @@ public class DnDCharacter {
     private final int wisdom;
 
     private final int charisma;
+
+    static int rollDice() {
+        final int rolledValue = DICE.nextInt(6);
+        return rolledValue != 0 ? rolledValue : 1;
+    }
 
     DnDCharacter() {
         this.strength = ability();

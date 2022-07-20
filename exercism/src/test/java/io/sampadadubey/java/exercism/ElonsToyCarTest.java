@@ -4,10 +4,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
-public class ElonsToyCarTest {
+class ElonsToyCarTest {
 
     @Test
-    public void buy_new_car_returns_instance() {
+    void buy_new_car_returns_instance() {
 
         final ElonsToyCar car = ElonsToyCar.buy();
 
@@ -15,7 +15,7 @@ public class ElonsToyCarTest {
     }
 
     @Test
-    public void buy_new_car_returns_new_car_each_time() {
+    void buy_new_car_returns_new_car_each_time() {
 
         final ElonsToyCar car1 = ElonsToyCar.buy();
         final ElonsToyCar car2 = ElonsToyCar.buy();
@@ -24,7 +24,7 @@ public class ElonsToyCarTest {
     }
 
     @Test
-    public void new_car_distance_display() {
+    void new_car_distance_display() {
 
         final ElonsToyCar car = new ElonsToyCar();
 
@@ -32,7 +32,7 @@ public class ElonsToyCarTest {
     }
 
     @Test
-    public void new_car_battery_display() {
+    void new_car_battery_display() {
 
         final ElonsToyCar car = new ElonsToyCar();
 
@@ -40,7 +40,7 @@ public class ElonsToyCarTest {
     }
 
     @Test
-    public void distance_display_after_driving_once() {
+    void distance_display_after_driving_once() {
 
         final ElonsToyCar car = new ElonsToyCar();
 
@@ -50,7 +50,7 @@ public class ElonsToyCarTest {
     }
 
     @Test
-    public void distance_display_after_driving_multiple_times() {
+    void distance_display_after_driving_multiple_times() {
 
         final ElonsToyCar car = new ElonsToyCar();
 
@@ -62,7 +62,7 @@ public class ElonsToyCarTest {
     }
 
     @Test
-    public void battery_display_after_driving_once() {
+    void battery_display_after_driving_once() {
 
         final ElonsToyCar car = new ElonsToyCar();
 
@@ -72,7 +72,7 @@ public class ElonsToyCarTest {
     }
 
     @Test
-    public void battery_display_after_driving_multiple_times() {
+    void battery_display_after_driving_multiple_times() {
 
         final ElonsToyCar car = new ElonsToyCar();
 
@@ -84,7 +84,7 @@ public class ElonsToyCarTest {
     }
 
     @Test
-    public void battery_display_when_battery_empty() {
+    void battery_display_when_battery_empty() {
 
         final ElonsToyCar car = new ElonsToyCar();
 
@@ -100,7 +100,7 @@ public class ElonsToyCarTest {
     }
 
     @Test
-    public void distance_display_when_battery_empty() {
+    void distance_display_when_battery_empty() {
 
         final ElonsToyCar car = new ElonsToyCar();
 

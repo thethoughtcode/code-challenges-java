@@ -5,7 +5,13 @@ import java.util.Set;
 
 public class BlackJack {
 
-    static final int BLACKJACK = 21;
+    static final int SCORE_BLACKJACK = 21;
+
+    static final int SCORE_SEVENTEEN = 17;
+
+    static final int SCORE_ELEVEN = 11;
+
+    static final int SCORE_SEVEN = 7;
 
     static final Set<Integer> HIGH_VALUE_CARDS = new HashSet<Integer>() {
         {
@@ -22,7 +28,7 @@ public class BlackJack {
     }
 
     public boolean isBlackjack(final String card1, final String card2) {
-        return parseCard(card1) + parseCard(card2) == BLACKJACK;
+        return parseCard(card1) + parseCard(card2) == SCORE_BLACKJACK;
     }
 
     public String largeHand(final boolean isBlackjack, final int dealerScore) {
@@ -47,12 +53,12 @@ public class BlackJack {
 
         final Decision decision;
 
-        if (handScore >= 17) {
+        if (handScore >= SCORE_SEVENTEEN) {
             decision = Decision.STAND;
-        } else if (handScore <= 11) {
+        } else if (handScore <= SCORE_ELEVEN) {
             decision = Decision.HIT;
         } else {
-            if (dealerScore >= 7) {
+            if (dealerScore >= SCORE_SEVEN) {
                 decision = Decision.HIT;
             } else {
                 decision = Decision.STAND;

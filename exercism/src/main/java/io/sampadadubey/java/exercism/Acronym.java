@@ -1,5 +1,7 @@
 package io.sampadadubey.java.exercism;
 
+import java.util.Locale;
+
 public class Acronym {
 
     private final String phrase;
@@ -18,7 +20,7 @@ public class Acronym {
             acronym.append(part.charAt(0));
         }
 
-        return acronym.toString().toUpperCase();
+        return acronym.toString().toUpperCase(Locale.getDefault());
     }
 
     private String getCleanedPhrase() {

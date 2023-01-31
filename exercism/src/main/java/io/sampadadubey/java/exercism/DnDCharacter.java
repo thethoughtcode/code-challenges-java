@@ -1,10 +1,11 @@
 package io.sampadadubey.java.exercism;
 
+import java.security.SecureRandom;
 import java.util.Arrays;
 
 public class DnDCharacter {
 
-    static final Random DICE = new Random();
+    static final SecureRandom DICE = new SecureRandom();
 
     private final int strength;
 
@@ -95,12 +96,5 @@ public class DnDCharacter {
         }
 
         return values;
-    }
-}
-
-class Random {
-
-    int nextInt(final int limit) {
-        return (int) Math.random() * limit;
     }
 }

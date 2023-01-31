@@ -1,7 +1,6 @@
 package io.sampadadubey.java.exercism;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class DnDCharacter {
 
@@ -96,5 +95,12 @@ public class DnDCharacter {
         }
 
         return values;
+    }
+}
+
+class Random {
+
+    int nextInt(final int limit) {
+        return (int) Math.random() * limit;
     }
 }

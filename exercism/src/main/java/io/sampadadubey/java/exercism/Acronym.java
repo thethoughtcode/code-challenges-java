@@ -24,6 +24,6 @@ public class Acronym {
     }
 
     private String getCleanedPhrase() {
-        return phrase.replaceAll("[^A-Za-z]*\\s+[^A-Za-z]*+", " ").replaceAll("-", " ");
+        return phrase.replaceAll("[^A-Za-z]*\\s+[^A-Za-z]*", " ").replaceAll("-", " ");
     }
 }

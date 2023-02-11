@@ -49,10 +49,10 @@ public class NaturalNumber {
 
             if (dividendWithDecimal == dividendWithoutDecimal) {
                 loopNumber = (int) dividendWithDecimal;
-                if (divisor != loopNumber) {
-                    sum = sum + divisor + loopNumber;
-                } else {
+                if (divisor == loopNumber) {
                     sum = sum + divisor;
+                } else {
+                    sum = sum + divisor + loopNumber;
                 }
             }
 

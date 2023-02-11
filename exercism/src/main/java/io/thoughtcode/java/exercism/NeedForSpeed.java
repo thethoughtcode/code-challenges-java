@@ -27,7 +27,7 @@ class NeedForSpeed {
         return battery < batteryDrain;
     }
 
-    public int distanceDriven() {
+    public int getDistanceDriven() {
         return distanceDriven;
     }
 
@@ -69,6 +69,6 @@ class RaceTrack {
     }
 
     private boolean isTrackCompleted(final NeedForSpeed car) {
-        return car.distanceDriven() >= distance;
+        return car.getDistanceDriven() >= distance;
     }
 }

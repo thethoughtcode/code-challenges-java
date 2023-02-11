@@ -2,7 +2,7 @@ package io.thoughtcode.java.exercism;
 
 import java.util.Optional;
 
-public class FootballMatchReports {
+public final class FootballMatchReports {
 
     static final int GOALIE = 1;
     static final int LEFT_BACK = 2;
@@ -53,5 +53,8 @@ public class FootballMatchReports {
         }
 
         return Optional.ofNullable(description).orElseThrow(() -> new IllegalArgumentException());
+    }
+
+    private FootballMatchReports(){
     }
 }

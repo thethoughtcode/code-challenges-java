@@ -219,8 +219,7 @@ public abstract class ReflectionProxy {
             return false;
         }
         try {
-            Field field = targetClass.getDeclaredField(name);
-            return field != null;
+            return targetClass.getDeclaredField(name) != null;
         } catch (final NoSuchFieldException e) {
             return false;
         }
@@ -278,8 +277,7 @@ public abstract class ReflectionProxy {
             return false;
         }
         try {
-            final Field field = targetClass.getDeclaredField(name);
-            return Modifier.isPrivate(field.getModifiers());
+            return Modifier.isPrivate(targetClass.getDeclaredField(name).getModifiers());
         } catch (final NoSuchFieldException e) {
             return false;
         }

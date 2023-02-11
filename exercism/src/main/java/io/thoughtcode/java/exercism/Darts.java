@@ -1,5 +1,7 @@
 package io.thoughtcode.java.exercism;
 
+import io.thoughtcode.java.common.NumberConstants;
+
 public class Darts {
 
     private final double hypotenuse;
@@ -12,14 +14,14 @@ public class Darts {
 
         final int score;
 
-        if (hypotenuse <= 1) {
-            score = 10;
-        } else if (hypotenuse <= 5) {
-            score = 5;
-        } else if (hypotenuse <= 10) {
-            score = 1;
+        if (hypotenuse <= NumberConstants.ONE) {
+            score = NumberConstants.TEN;
+        } else if (hypotenuse <= NumberConstants.FIVE) {
+            score = NumberConstants.FIVE;
+        } else if (hypotenuse <= NumberConstants.TEN) {
+            score = NumberConstants.ONE;
         } else {
-            score = 0;
+            score = NumberConstants.ZERO;
         }
 
         return score;

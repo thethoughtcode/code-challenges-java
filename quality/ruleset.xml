@@ -65,6 +65,12 @@
             <property name="junit5TestPattern" value="[a-z][a-zA-Z0-9_]*" />
         </properties>
     </rule>
+    <rule ref="category/java/codestyle.xml/TooManyStaticImports">
+        <properties>
+            <property name="maximumStaticImports" value="10" />
+        </properties>
+    </rule>
+
 
     <rule ref="category/jsp/bestpractices.xml" />
     <rule ref="category/jsp/codestyle.xml" />

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 class GrainsTest {
 
-    private Grains grains = new Grains();
+    private final Grains grains = new Grains();
 
     @Test
     void countAtSquare1() {

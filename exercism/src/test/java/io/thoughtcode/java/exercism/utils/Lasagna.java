@@ -31,7 +31,7 @@ public class Lasagna extends ReflectionProxy {
         }
     }
 
-    public int totalTimeInMinutes(final int amountLayers, int actualMinutes) {
+    public int totalTimeInMinutes(final int amountLayers, final int actualMinutes) {
         try {
             return invokeMethod("totalTimeInMinutes", new Class[] { int.class, int.class }, amountLayers,
                     actualMinutes);

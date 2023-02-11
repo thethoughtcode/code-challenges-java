@@ -18,7 +18,7 @@ public class Grains {
 
             // Math.pow is not accurate for very big numbers. That is why multiplication on
             // BigInteger is required
-            grainOnPosition = position != 1 ? grainOnPosition.multiply(BigInteger.TWO) : BigInteger.ONE;
+            grainOnPosition = position == 1 ? BigInteger.ONE : grainOnPosition.multiply(BigInteger.TWO);
 
             // Store the grainOnPosition on the Map
             GRAINS_ON_SQUARE.put(position, grainOnPosition);

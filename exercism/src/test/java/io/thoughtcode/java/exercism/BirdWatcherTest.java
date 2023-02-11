@@ -1,6 +1,6 @@
 package io.thoughtcode.java.exercism;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,7 +17,7 @@ class BirdWatcherTest {
 
     private BirdWatcher fixture;
 
-    private int lastWeek[] = { DAY1, DAY2, DAY3, DAY4, DAY5, DAY6, TODAY };
+    private final int lastWeek[] = { DAY1, DAY2, DAY3, DAY4, DAY5, DAY6, TODAY };
 
     @BeforeEach
     void setUp() {

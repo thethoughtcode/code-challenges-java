@@ -4,29 +4,31 @@ public class SqueakyClean {
 
     String clean(final String identifier) {
 
-        String allSpacesReplaced = identifier.replaceAll(" ", "_");
-        String allSpaceAndNumbersReplaced = allSpacesReplaced.replaceAll("[0-9]", "");
+        final String allSpacesReplaced = identifier.replaceAll(" ", "_");
+        final String allSpaceAndNumbersReplaced = allSpacesReplaced.replaceAll("[0-9]", "");
 
         final int length = allSpaceAndNumbersReplaced.length();
 
         final StringBuilder result = new StringBuilder();
 
-        for (int index = 0; index < length; index++) {
+        int index = 0;
+
+        while (index < length) {
 
             final char value = allSpaceAndNumbersReplaced.charAt(index);
 
             if (isControlCharacter(value)) {
                 result.append("CTRL");
-            } else if (isGreekCharacter(value)) {
-                continue;
-            } else if (isHyphen(value) && (index + 1 != length)) {
+            } else if (isGreekCharacter(value) || isEmoji(value)) {
+                // Nothing to do
+            } else if (isHyphen(value) && index + 1 != length) {
                 index++;
                 result.append(Character.toUpperCase(allSpaceAndNumbersReplaced.charAt(index)));
-            } else if (isEmoji(value)) {
-                continue;
             } else {
                 result.append(value);
             }
+
+            index++;
         }
 
         return result.toString();

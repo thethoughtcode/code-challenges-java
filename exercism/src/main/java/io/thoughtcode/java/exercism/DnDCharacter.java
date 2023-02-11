@@ -21,7 +21,7 @@ public class DnDCharacter {
 
     static int rollDice() {
         final int rolledValue = DICE.nextInt(6);
-        return rolledValue != 0 ? rolledValue : 1;
+        return rolledValue == 0 ? 1 : rolledValue;
     }
 
     DnDCharacter() {

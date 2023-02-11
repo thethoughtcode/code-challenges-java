@@ -41,21 +41,21 @@ class ArmstrongNumbersTest {
 
     @Test
     void fourDigitNumberIsArmstrongNumber() {
-        assertThat(armstrongNumbers.isArmstrongNumber(9474)).isTrue();
+        assertThat(armstrongNumbers.isArmstrongNumber(9_474)).isTrue();
     }
 
     @Test
     void fourDigitNumberIsNotArmstrongNumber() {
-        assertThat(armstrongNumbers.isArmstrongNumber(9475)).isFalse();
+        assertThat(armstrongNumbers.isArmstrongNumber(9_475)).isFalse();
     }
 
     @Test
     void sevenDigitNumberIsArmstrongNumber() {
-        assertThat(armstrongNumbers.isArmstrongNumber(9926315)).isTrue();
+        assertThat(armstrongNumbers.isArmstrongNumber(9_926_315)).isTrue();
     }
 
     @Test
     void sevenDigitNumberIsNotArmstrongNumber() {
-        assertThat(armstrongNumbers.isArmstrongNumber(9926314)).isFalse();
+        assertThat(armstrongNumbers.isArmstrongNumber(9_926_314)).isFalse();
     }
 }

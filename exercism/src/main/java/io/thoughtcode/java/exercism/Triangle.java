@@ -2,11 +2,13 @@ package io.thoughtcode.java.exercism;
 
 public class Triangle {
 
-    private double side1;
 
-    private double side2;
 
-    private double side3;
+    private final double side1;
+
+    private final double side2;
+
+    private final double side3;
 
     Triangle(final double side1, final double side2, final double side3) throws TriangleException {
 
@@ -41,4 +43,5 @@ public class Triangle {
 }
 
 class TriangleException extends Exception {
+    public static final long serialVersionUID = 1L;
 }

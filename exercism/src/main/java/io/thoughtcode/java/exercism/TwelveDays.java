@@ -5,12 +5,15 @@ import static java.lang.String.format;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+
+import io.thoughtcode.java.common.NumberConstants;
 
 class TwelveDays {
 
     static final String PREFIX = "On the %s day of Christmas my true love gave to me:";
 
-    static final LinkedHashMap<Integer, String[]> ITEMS = new LinkedHashMap<>();
+    static final Map<Integer, String[]> ITEMS = new LinkedHashMap<>();
 
     static {
         ITEMS.put(1, new String[] { "first", "a Partridge in a Pear Tree" });
@@ -31,7 +34,7 @@ class TwelveDays {
 
         final String verse;
 
-        if (verseNumber > 1) {
+        if (verseNumber > NumberConstants.ONE) {
 
             final String[] firstItem = ITEMS.get(1);
 
@@ -46,7 +49,7 @@ class TwelveDays {
 
             verse = format("%s %s, and %s.", prefix, verseItemsExceptFirst, firstItem[1]);
 
-        } else if (verseNumber == 1) {
+        } else if (verseNumber == NumberConstants.ONE) {
             verse = format("%s %s.", format(PREFIX, ITEMS.get(verseNumber)[0]), ITEMS.get(verseNumber)[1]);
         } else {
             verse = "";

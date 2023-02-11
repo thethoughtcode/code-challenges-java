@@ -42,7 +42,7 @@ class BirdWatcher {
 
     public int getToday() {
         final int dayCount = birdsPerDay.length;
-        return 0 != dayCount ? birdsPerDay[dayCount - 1] : 0;
+        return 0 == dayCount ? 0 : birdsPerDay[dayCount - 1];
     }
 
     public void incrementTodaysCount() {

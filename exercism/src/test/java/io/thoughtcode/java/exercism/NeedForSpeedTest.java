@@ -13,7 +13,7 @@ class NeedForSpeedTest {
         final int batteryDrain = 2;
         final NeedForSpeed car = new NeedForSpeed(speed, batteryDrain);
 
-        assertThat(car.distanceDriven()).isEqualTo(0);
+        assertThat(car.getDistanceDriven()).isEqualTo(0);
     }
 
     @Test
@@ -25,7 +25,7 @@ class NeedForSpeedTest {
 
         car.drive();
 
-        assertThat(car.distanceDriven()).isEqualTo(5);
+        assertThat(car.getDistanceDriven()).isEqualTo(5);
     }
 
     @Test
@@ -42,7 +42,7 @@ class NeedForSpeedTest {
         // One extra drive attempt (should not succeed)
         car.drive();
 
-        assertThat(car.distanceDriven()).isEqualTo(18);
+        assertThat(car.getDistanceDriven()).isEqualTo(18);
     }
 
     @Test
@@ -88,7 +88,7 @@ class NeedForSpeedTest {
     @Test
     void nitro_car_has_not_driven_any_distance() {
         final NeedForSpeed car = NeedForSpeed.nitro();
-        assertThat(car.distanceDriven()).isEqualTo(0);
+        assertThat(car.getDistanceDriven()).isEqualTo(0);
     }
 
     @Test
@@ -101,7 +101,7 @@ class NeedForSpeedTest {
     void nitro_car_has_correct_speed() {
         final NeedForSpeed car = NeedForSpeed.nitro();
         car.drive();
-        assertThat(car.distanceDriven()).isEqualTo(50);
+        assertThat(car.getDistanceDriven()).isEqualTo(50);
     }
 
     @Test

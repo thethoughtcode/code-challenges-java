@@ -103,16 +103,18 @@ class MatrixCoordinate implements Comparable<MatrixCoordinate> {
     @Override
     public boolean equals(final Object other) {
 
+        boolean result;
+
         if (this == other) {
-            return true;
-        }
-        if (other == null || getClass() != other.getClass()) {
-            return false;
+            result = true;
+        } else if (other == null || getClass() != other.getClass()) {
+            result = false;
+        } else {
+            final MatrixCoordinate that = (MatrixCoordinate) other;
+            result = this.row == that.row && this.col == that.col;
         }
 
-        final MatrixCoordinate that = (MatrixCoordinate) other;
-
-        return this.row == that.row && this.col == that.col;
+        return result;
     }
 
     @Override

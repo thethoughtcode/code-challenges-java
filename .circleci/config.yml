@@ -23,7 +23,11 @@ jobs:
           name: Build
           command: |
 
-            env
+            VALUE=$(env | grep "CODACY" | cut -d= -f2)
+
+            echo "=============="
+            echo $VALUE
+            echo "=============="
 
             export PROJECT_NAME="code-challenges-java"
             export SONAR_TOKEN="${ENV_SONAR_TOKEN_CODE_CHALLENGES_JAVA}"

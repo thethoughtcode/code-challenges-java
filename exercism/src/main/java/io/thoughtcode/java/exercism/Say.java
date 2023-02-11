@@ -13,16 +13,16 @@ public class Say {
 
     static final int TWENTY = 20;
 
-    static final List<NamedNumber> NUMBERS = new ArrayList<>() {
-        {
-            add(NamedNumber.QUINTILLION);
-            add(NamedNumber.QUADRILLION);
-            add(NamedNumber.TRILLION);
-            add(NamedNumber.BILLION);
-            add(NamedNumber.MILLION);
-            add(NamedNumber.THOUSAND);
-        }
-    };
+    static final List<NamedNumber> NUMBERS = new ArrayList<>();
+
+    static {
+        NUMBERS.add(NamedNumber.QUINTILLION);
+        NUMBERS.add(NamedNumber.QUADRILLION);
+        NUMBERS.add(NamedNumber.TRILLION);
+        NUMBERS.add(NamedNumber.BILLION);
+        NUMBERS.add(NamedNumber.MILLION);
+        NUMBERS.add(NamedNumber.THOUSAND);
+    }
 
     public String say(final long number) {
 
@@ -198,12 +198,12 @@ enum NamedNumber {
 
     ZERO(0);
 
-    static final Map<Long, String> VALUES = new HashMap<Long, String>() {
-        {
-            Arrays.stream(NamedNumber.values())
-                    .forEach(number -> put(number.getNumber(), number.name().toLowerCase(Locale.getDefault())));
-        }
-    };
+    static final Map<Long, String> VALUES = new HashMap<Long, String>();
+
+    static {
+        Arrays.stream(NamedNumber.values())
+              .forEach(number -> VALUES.put(number.getNumber(), number.name().toLowerCase(Locale.getDefault())));
+    }
 
     static String getString(final long number) {
         return VALUES.getOrDefault(number, "");

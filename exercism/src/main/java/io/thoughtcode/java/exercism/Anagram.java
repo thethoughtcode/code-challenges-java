@@ -48,7 +48,7 @@ class Anagram {
             match = wordCharacters.keySet()
                                   .stream()
                                   .noneMatch(it -> !matchCharacters.containsKey(it)
-                                          || wordCharacters.get(it) != matchCharacters.get(it));
+                                          || wordCharacters.get(it).equals(matchCharacters.get(it)) != true);
         }
 
         return match;

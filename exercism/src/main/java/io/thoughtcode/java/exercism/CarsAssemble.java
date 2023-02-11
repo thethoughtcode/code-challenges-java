@@ -5,9 +5,9 @@ import java.math.RoundingMode;
 
 public class CarsAssemble {
 
-    static final int CARS_PER_HOUR = 221;
+    static final double CARS_PER_HOUR = 221.0;
 
-    static final int MINUTES_PER_HOUR = 60;
+    static final double MINUTES_PER_HOUR = 60.0;
 
     public double productionRatePerHour(final int speed) {
         final BigDecimal totalCars = BigDecimal.valueOf(CARS_PER_HOUR * speed);

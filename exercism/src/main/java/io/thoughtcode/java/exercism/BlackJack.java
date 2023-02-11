@@ -15,15 +15,15 @@ public class BlackJack {
 
     static final int SCORE_SEVEN = 7;
 
-    static final Set<Integer> HIGH_VALUE_CARDS = new HashSet<Integer>() {
-        {
-            add(Card.ACE.getValue());
-            add(Card.TEN.getValue());
-            add(Card.JACK.getValue());
-            add(Card.QUEEN.getValue());
-            add(Card.KING.getValue());
-        }
-    };
+    static final Set<Integer> HIGH_VALUE_CARDS = new HashSet<Integer>();
+
+    static {
+        HIGH_VALUE_CARDS.add(Card.ACE.getValue());
+        HIGH_VALUE_CARDS.add(Card.TEN.getValue());
+        HIGH_VALUE_CARDS.add(Card.JACK.getValue());
+        HIGH_VALUE_CARDS.add(Card.QUEEN.getValue());
+        HIGH_VALUE_CARDS.add(Card.KING.getValue());
+    }
 
     public int parseCard(final String card) {
         return Card.get(card).getValue();

@@ -15,7 +15,7 @@ public class SalaryCalculator {
     }
 
     public double bonusForProductSold(final int productsSold) {
-        return multiplierPerProductsSold(productsSold) * productsSold;
+        return ((double) multiplierPerProductsSold(productsSold)) * productsSold;
     }
 
     public double finalSalary(final int daysSkipped, final int productsSold) {

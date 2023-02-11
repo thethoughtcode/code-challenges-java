@@ -10,22 +10,22 @@ class TwelveDays {
 
     static final String PREFIX = "On the %s day of Christmas my true love gave to me:";
 
-    static final LinkedHashMap<Integer, String[]> ITEMS = new LinkedHashMap<>() {
-        {
-            put(1, new String[] { "first", "a Partridge in a Pear Tree" });
-            put(2, new String[] { "second", "two Turtle Doves" });
-            put(3, new String[] { "third", "three French Hens" });
-            put(4, new String[] { "fourth", "four Calling Birds" });
-            put(5, new String[] { "fifth", "five Gold Rings" });
-            put(6, new String[] { "sixth", "six Geese-a-Laying" });
-            put(7, new String[] { "seventh", "seven Swans-a-Swimming" });
-            put(8, new String[] { "eighth", "eight Maids-a-Milking" });
-            put(9, new String[] { "ninth", "nine Ladies Dancing" });
-            put(10, new String[] { "tenth", "ten Lords-a-Leaping" });
-            put(11, new String[] { "eleventh", "eleven Pipers Piping" });
-            put(12, new String[] { "twelfth", "twelve Drummers Drumming" });
-        }
-    };
+    static final LinkedHashMap<Integer, String[]> ITEMS = new LinkedHashMap<>();
+
+    static {
+        ITEMS.put(1, new String[] { "first", "a Partridge in a Pear Tree" });
+        ITEMS.put(2, new String[] { "second", "two Turtle Doves" });
+        ITEMS.put(3, new String[] { "third", "three French Hens" });
+        ITEMS.put(4, new String[] { "fourth", "four Calling Birds" });
+        ITEMS.put(5, new String[] { "fifth", "five Gold Rings" });
+        ITEMS.put(6, new String[] { "sixth", "six Geese-a-Laying" });
+        ITEMS.put(7, new String[] { "seventh", "seven Swans-a-Swimming" });
+        ITEMS.put(8, new String[] { "eighth", "eight Maids-a-Milking" });
+        ITEMS.put(9, new String[] { "ninth", "nine Ladies Dancing" });
+        ITEMS.put(10, new String[] { "tenth", "ten Lords-a-Leaping" });
+        ITEMS.put(11, new String[] { "eleventh", "eleven Pipers Piping" });
+        ITEMS.put(12, new String[] { "twelfth", "twelve Drummers Drumming" });
+    }
 
     String verse(final int verseNumber) {
 

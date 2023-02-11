@@ -49,7 +49,7 @@ class ProverbTest {
     @Test
     void fullProverb() {
 
-        final String[] words = new { "nail", "shoe", "horse", "rider", "message", "battle", "kingdom" };
+        final String[] words = { "nail", "shoe", "horse", "rider", "message", "battle", "kingdom" };
 
         assertThat(new Proverb(words).recite())
                 .isEqualTo(

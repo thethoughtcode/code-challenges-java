@@ -18,7 +18,7 @@ public class AnnalynsInfiltration {
     boolean canFreePrisoner(final boolean knightIsAwake, final boolean archerIsAwake,
             final boolean prisonerIsAwake, final boolean petDogIsPresent) {
 
-        boolean result = false;
+        boolean result;
 
         if (petDogIsPresent) {
             result = !archerIsAwake;

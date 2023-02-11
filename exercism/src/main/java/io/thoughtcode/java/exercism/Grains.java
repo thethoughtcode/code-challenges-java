@@ -8,7 +8,7 @@ public class Grains {
 
     static final Map<Integer, BigInteger> GRAINS_ON_SQUARE = new HashMap<>();
 
-    static BigInteger TOTAL_GRAINS = BigInteger.ZERO;
+    static BigInteger totalGrains = BigInteger.ZERO;
 
     static {
 
@@ -24,7 +24,7 @@ public class Grains {
             GRAINS_ON_SQUARE.put(position, grainOnPosition);
 
             // Calculate and store the total Grains
-            TOTAL_GRAINS = TOTAL_GRAINS.add(grainOnPosition);
+            totalGrains = totalGrains.add(grainOnPosition);
         }
     }
 
@@ -38,6 +38,6 @@ public class Grains {
     }
 
     BigInteger grainsOnBoard() {
-        return TOTAL_GRAINS;
+        return totalGrains;
     }
 }

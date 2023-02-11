@@ -14,7 +14,7 @@ public class ArmstrongNumbers {
 
             int currentDigit = number % 10;
 
-            numberCalculated = numberCalculated + (int) Math.pow((double) currentDigit, (double) numberOfDigits);
+            numberCalculated = numberCalculated + (int) Math.pow(currentDigit, numberOfDigits);
 
             number = number / 10;
         }

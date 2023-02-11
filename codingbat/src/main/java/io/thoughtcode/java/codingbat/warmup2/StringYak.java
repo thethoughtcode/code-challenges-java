@@ -14,7 +14,7 @@ public final class StringYak {
         String output = input;
 
         if (input.length() >= THREE) {
-            output = input.replaceAll("y[a-zA-Z0-9]{1}k", "");
+            output = input.replaceAll("y[a-zA-Z0-9]k", "");
         }
 
         return output;

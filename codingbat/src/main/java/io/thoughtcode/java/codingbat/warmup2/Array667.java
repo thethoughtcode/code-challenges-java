@@ -15,7 +15,7 @@ public final class Array667 {
 
         final StringBuilder numString = new StringBuilder();
 
-        Arrays.stream(nums).forEach(num -> numString.append(num));
+        Arrays.stream(nums).forEach(numString::append);
 
         final Matcher matcher = PATTERN.matcher(numString);
 

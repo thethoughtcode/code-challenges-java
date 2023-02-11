@@ -11,7 +11,7 @@ public final class Array123 {
 
         final StringBuilder inputStr = new StringBuilder();
 
-        Arrays.stream(nums).forEach(num -> inputStr.append(num));
+        Arrays.stream(nums).forEach(inputStr::append);
 
         return inputStr.toString().contains("123");
     }

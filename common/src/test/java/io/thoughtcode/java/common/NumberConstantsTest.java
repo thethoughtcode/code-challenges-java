@@ -35,7 +35,7 @@ class NumberConstantsTest {
         values.put(NumberConstants.HUNDRED, "100");
 
         for (final Entry<Integer, String> entry : values.entrySet()) {
-            assertThat(entry.getKey().intValue() == Integer.parseInt(entry.getValue()));
+            assertThat(entry.getKey().intValue() == Integer.parseInt(entry.getValue())).isTrue();
         }
     }
 }

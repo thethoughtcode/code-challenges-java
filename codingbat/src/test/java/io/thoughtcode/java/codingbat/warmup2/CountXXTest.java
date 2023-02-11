@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class CountXxTest {
+class CountXXTest {
 
     private CountXX fixture;
 
@@ -22,7 +22,7 @@ class CountXxTest {
 
         final int expected = 0;
 
-        final int actual = fixture.countXX(str);
+        final int actual = fixture.countXXValues(str);
 
         assertThat(actual).isEqualTo(expected);
     }
@@ -34,7 +34,7 @@ class CountXxTest {
 
         final int expected = 0;
 
-        final int actual = fixture.countXX(str);
+        final int actual = fixture.countXXValues(str);
 
         assertThat(actual).isEqualTo(expected);
     }
@@ -46,7 +46,7 @@ class CountXxTest {
 
         final int expected = 0;
 
-        final int actual = fixture.countXX(str);
+        final int actual = fixture.countXXValues(str);
 
         assertThat(actual).isEqualTo(expected);
     }
@@ -58,7 +58,7 @@ class CountXxTest {
 
         final int expected = 1;
 
-        final int actual = fixture.countXX(str);
+        final int actual = fixture.countXXValues(str);
 
         assertThat(actual).isEqualTo(expected);
     }
@@ -70,7 +70,7 @@ class CountXxTest {
 
         final int expected = 2;
 
-        final int actual = fixture.countXX(str);
+        final int actual = fixture.countXXValues(str);
 
         assertThat(actual).isEqualTo(expected);
     }
@@ -82,7 +82,7 @@ class CountXxTest {
 
         final int expected = 3;
 
-        final int actual = fixture.countXX(str);
+        final int actual = fixture.countXXValues(str);
 
         assertThat(actual).isEqualTo(expected);
     }

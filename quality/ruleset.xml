@@ -12,6 +12,7 @@
 
     <rule ref="category/java/bestpractices.xml">
         <exclude name="UseVarargs" />
+        <exclude name="SystemPrintln" />
     </rule>
     <rule ref="category/java/codestyle.xml">
         <exclude name="AtLeastOneConstructor" />
@@ -46,9 +47,30 @@
     </rule>
     <rule ref="category/java/design.xml/TooManyMethods">
         <properties>
-            <property name="maxmethods" value="50" />
+            <property name="maxmethods" value="60" />
         </properties>
     </rule>
+    <rule ref="category/java/codestyle.xml/LongVariable">
+        <properties>
+            <property name="minimum" value="35" />
+        </properties>
+    </rule>
+    <rule ref="category/java/codestyle.xml/MethodNamingConventions">
+        <properties>
+            <property name="methodPattern" value="[a-z][a-zA-Z0-9]*" />
+            <property name="staticPattern" value="[a-z][a-zA-Z0-9]*" />
+            <property name="nativePattern" value="[a-z][a-zA-Z0-9]*" />
+            <property name="junit3TestPattern" value="test[A-Z0-9][a-zA-Z0-9]*" />
+            <property name="junit4TestPattern" value="[a-z][a-zA-Z0-9_]*" />
+            <property name="junit5TestPattern" value="[a-z][a-zA-Z0-9_]*" />
+        </properties>
+    </rule>
+    <rule ref="category/java/codestyle.xml/TooManyStaticImports">
+        <properties>
+            <property name="maximumStaticImports" value="10" />
+        </properties>
+    </rule>
+
 
     <rule ref="category/jsp/bestpractices.xml" />
     <rule ref="category/jsp/codestyle.xml" />

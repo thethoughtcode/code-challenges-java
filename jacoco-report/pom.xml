@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.sampadadubey.java</groupId>
+        <groupId>io.thoughtcode.java</groupId>
         <artifactId>parent</artifactId>
         <version>1.0</version>
         <relativePath>..</relativePath>
@@ -16,17 +16,22 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.sampadadubey.java</groupId>
+            <groupId>io.thoughtcode.java</groupId>
             <artifactId>common</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.sampadadubey.java</groupId>
+            <groupId>io.thoughtcode.java</groupId>
             <artifactId>codingbat</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.sampadadubey.java</groupId>
+            <groupId>io.thoughtcode.java</groupId>
+            <artifactId>exercism</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.thoughtcode.java</groupId>
             <artifactId>hackerrank</artifactId>
             <version>${project.parent.version}</version>
         </dependency>

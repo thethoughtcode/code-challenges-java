@@ -4,7 +4,7 @@ import java.util.Optional;
 
 public class ReverseString {
 
-    String reverse(String inputString) {
+    String reverse(final String inputString) {
 
         final String input = Optional.ofNullable(inputString).orElseGet(() -> "").trim();
 

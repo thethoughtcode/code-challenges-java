@@ -12,7 +12,7 @@ public class ArmstrongNumbers {
 
         while (number != 0) {
 
-            int currentDigit = number % 10;
+            final int currentDigit = number % 10;
 
             numberCalculated = numberCalculated + (int) Math.pow(currentDigit, numberOfDigits);
 

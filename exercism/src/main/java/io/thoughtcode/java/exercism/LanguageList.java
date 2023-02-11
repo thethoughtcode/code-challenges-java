@@ -16,6 +16,10 @@ public class LanguageList {
         return languages.isEmpty();
     }
 
+    public boolean isNotEmpty() {
+        return !isEmpty();
+    }
+
     public void addLanguage(final String language) {
         if (!containsLanguage(language)) {
             languages.add(language);
@@ -27,7 +31,7 @@ public class LanguageList {
     }
 
     public String firstLanguage() {
-        return !isEmpty() ? languages.get(0) : null;
+        return isNotEmpty() ? languages.get(0) : null;
     }
 
     public int count() {

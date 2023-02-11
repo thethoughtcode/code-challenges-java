@@ -1,6 +1,7 @@
 package io.thoughtcode.java.exercism;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 public class BlackJack {
@@ -15,7 +16,7 @@ public class BlackJack {
 
     static final int SCORE_SEVEN = 7;
 
-    static final Set<Integer> HIGH_VALUE_CARDS = new HashSet<Integer>();
+    static final Set<Integer> HIGH_VALUE_CARDS = new HashSet<>();
 
     static {
         HIGH_VALUE_CARDS.add(Card.ACE.getValue());
@@ -38,10 +39,10 @@ public class BlackJack {
         final Decision decision;
 
         if (isBlackjack) {
-            if (!HIGH_VALUE_CARDS.contains(dealerScore)) {
-                decision = Decision.WIN;
-            } else {
+            if (HIGH_VALUE_CARDS.contains(dealerScore)) {
                 decision = Decision.STAND;
+            } else {
+                decision = Decision.WIN;
             }
         } else {
             // It's not Blackjack, and large-hand scenario (player-score -> 22)
@@ -76,14 +77,19 @@ public class BlackJack {
     // the other functions together in a
     // complete decision tree for the first turn.
     public String firstTurn(final String card1, final String card2, final String dealerCard) {
+
         final int handScore = parseCard(card1) + parseCard(card2);
         final int dealerScore = parseCard(dealerCard);
 
+        final String result;
+
         if (SCORE_TWENTY < handScore) {
-            return largeHand(isBlackjack(card1, card2), dealerScore);
+            result = largeHand(isBlackjack(card1, card2), dealerScore);
         } else {
-            return smallHand(handScore, dealerScore);
+            result = smallHand(handScore, dealerScore);
         }
+
+        return result;
     }
 }
 
@@ -121,13 +127,16 @@ enum Card {
 
     static Card get(final String cardValueToParse) {
 
+        Card resultCard = null;
+
         for (final Card card : Card.values()) {
             if (card.name().equalsIgnoreCase(cardValueToParse)) {
-                return card;
+                resultCard = card;
+                break;
             }
         }
 
-        return Card.UNKNOWN;
+        return Optional.ofNullable(resultCard).orElse(Card.UNKNOWN);
     }
 
     Card(final int value) {
@@ -151,7 +160,7 @@ enum Decision {
 
     private String code;
 
-    private Decision(final String code) {
+    Decision(final String code) {
         this.code = code;
     }
 

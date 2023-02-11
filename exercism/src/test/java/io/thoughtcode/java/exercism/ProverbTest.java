@@ -17,7 +17,7 @@ class ProverbTest {
     @Test
     void singlePieceOfProverb() {
 
-        final String[] words = new String[] { "nail" };
+        final String[] words = { "nail" };
 
         assertThat(new Proverb(words).recite())
                 .isEqualTo("And all for the want of a nail.");
@@ -26,7 +26,7 @@ class ProverbTest {
     @Test
     void twoPiecesOfProverb() {
 
-        final String[] words = new String[] { "nail", "shoe" };
+        final String[] words = { "nail", "shoe" };
 
         assertThat(new Proverb(words).recite())
                 .isEqualTo(
@@ -37,7 +37,7 @@ class ProverbTest {
     @Test
     void shortChainOfConsequences() {
 
-        final String[] words = new String[] { "nail", "shoe", "horse" };
+        final String[] words = { "nail", "shoe", "horse" };
 
         assertThat(new Proverb(words).recite())
                 .isEqualTo(
@@ -49,7 +49,7 @@ class ProverbTest {
     @Test
     void fullProverb() {
 
-        final String[] words = new String[] { "nail", "shoe", "horse", "rider", "message", "battle", "kingdom" };
+        final String[] words = new { "nail", "shoe", "horse", "rider", "message", "battle", "kingdom" };
 
         assertThat(new Proverb(words).recite())
                 .isEqualTo(
@@ -65,7 +65,7 @@ class ProverbTest {
     @Test
     void fourPiecesModernizedProverb() {
 
-        final String[] words = new String[] { "pin", "gun", "soldier", "battle" };
+        final String[] words = { "pin", "gun", "soldier", "battle" };
 
         assertThat(new Proverb(words).recite())
                 .isEqualTo(

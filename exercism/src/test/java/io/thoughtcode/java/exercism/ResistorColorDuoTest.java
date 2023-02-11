@@ -15,35 +15,35 @@ class ResistorColorDuoTest {
 
     @Test
     void testBrownAndBlack() {
-        final String[] colors = new String[] { "brown", "black" };
+        final String[] colors = { "brown", "black" };
         final int expected = 10;
         assertThat(resistorColorDuo.value(colors)).isEqualTo(expected);
     }
 
     @Test
     void testBlueAndGrey() {
-        final String[] colors = new String[] { "blue", "grey" };
+        final String[] colors = { "blue", "grey" };
         final int expected = 68;
         assertThat(resistorColorDuo.value(colors)).isEqualTo(expected);
     }
 
     @Test
     void testYellowAndViolet() {
-        final String[] colors = new String[] { "yellow", "violet" };
+        final String[] colors = { "yellow", "violet" };
         final int expected = 47;
         assertThat(resistorColorDuo.value(colors)).isEqualTo(expected);
     }
 
     @Test
     void testOrangeAndOrange() {
-        final String[] colors = new String[] { "orange", "orange" };
+        final String[] colors = { "orange", "orange" };
         final int expected = 33;
         assertThat(resistorColorDuo.value(colors)).isEqualTo(expected);
     }
 
     @Test
     void testIgnoreAdditionalColors() {
-        final String[] colors = new String[] { "green", "brown", "orange" };
+        final String[] colors = { "green", "brown", "orange" };
         final int expected = 51;
         assertThat(resistorColorDuo.value(colors)).isEqualTo(expected);
     }

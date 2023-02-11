@@ -14,7 +14,7 @@ class GrainsTest {
     @Test
     void countAtSquare1() {
         final BigInteger result = grains.grainsOnSquare(1);
-        assertThat(result).isEqualTo(new BigInteger("1"));
+        assertThat(result).isEqualTo(BigInteger.ONE);
     }
 
     @Test

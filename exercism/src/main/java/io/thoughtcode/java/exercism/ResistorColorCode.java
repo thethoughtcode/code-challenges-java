@@ -27,7 +27,7 @@ public enum ResistorColorCode {
 
     private int colorCode;
 
-    private ResistorColorCode(final int colorCode) {
+    ResistorColorCode(final int colorCode) {
         this.colorCode = colorCode;
     }
 

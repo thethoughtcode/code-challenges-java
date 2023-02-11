@@ -6,6 +6,9 @@ import java.util.stream.Collectors;
 
 public class RemoteControlCarDemo {
 
+    private RemoteControlCarDemo(){
+    }
+
     public static void race(final RemoteControlCar car) {
         car.drive();
     }
@@ -28,7 +31,7 @@ class ExperimentalRemoteControlCar implements RemoteControlCar {
 
     static final int DEFAULT_DRIVE_DISTANCE = 20;
 
-    private int distanceDriven = 0;
+    private int distanceDriven;
 
     @Override
     public void drive() {
@@ -44,9 +47,9 @@ class ProductionRemoteControlCar implements RemoteControlCar {
 
     private static final int DEFAULT_DRIVE_DISTANCE = 10;
 
-    private int distanceDriven = 0;
+    private int distanceDriven;
 
-    private int numberOfVictories = 0;
+    private int numberOfVictories;
 
     @Override
     public void drive() {

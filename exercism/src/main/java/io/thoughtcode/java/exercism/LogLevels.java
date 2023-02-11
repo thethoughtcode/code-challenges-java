@@ -6,19 +6,19 @@ import java.util.regex.Pattern;
 
 public class LogLevels {
 
-    static Pattern LOG_PATTERN = Pattern.compile("\\[([A-Z]+)\\]:(.*)", Pattern.DOTALL);
-
     static final int MATCHER_GROUP_LOG_LEVEL = 1;
 
     static final int MATCHER_GROUP_LOG_MESSAGE = 2;
 
+    static Pattern logPattern = Pattern.compile("\\[([A-Z]+)\\]:(.*)", Pattern.DOTALL);
+
     public String message(final String logLine) {
-        final Matcher matcher = LOG_PATTERN.matcher(logLine);
+        final Matcher matcher = logPattern.matcher(logLine);
         return matcher.matches() ? matcher.group(MATCHER_GROUP_LOG_MESSAGE).trim() : "";
     }
 
     public String logLevel(final String logLine) {
-        final Matcher matcher = LOG_PATTERN.matcher(logLine);
+        final Matcher matcher = logPattern.matcher(logLine);
         return matcher.matches() ? matcher.group(MATCHER_GROUP_LOG_LEVEL).trim().toLowerCase(Locale.getDefault()) : "";
     }
 

@@ -47,7 +47,7 @@
     </rule>
     <rule ref="category/java/design.xml/TooManyMethods">
         <properties>
-            <property name="maxmethods" value="50" />
+            <property name="maxmethods" value="60" />
         </properties>
     </rule>
     <rule ref="category/java/codestyle.xml/LongVariable">

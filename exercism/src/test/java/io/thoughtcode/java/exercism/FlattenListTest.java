@@ -11,7 +11,9 @@ import org.junit.jupiter.api.Test;
 
 class FlattenListTest {
 
-    private FlattenList flattener = new FlattenList();
+    static final String SIX = "six";
+
+    private final FlattenList flattener = new FlattenList();
 
     @Test
     void testFlatListIsPreserved() {
@@ -25,8 +27,8 @@ class FlattenListTest {
     @Test
     void testASingleLevelOfNestingWithNoNulls() {
 
-        final List<Object> input = asList(1, asList('2', 3, 4, 5, "six", "7"), 8);
-        final List<Object> expected = asList(1, '2', 3, 4, 5, "six", "7", 8);
+        final List<Object> input = asList(1, asList('2', 3, 4, 5, SIX, "7"), 8);
+        final List<Object> expected = asList(1, '2', 3, 4, 5, SIX, "7", 8);
 
         assertThat(flattener.flatten(input)).containsExactlyElementsOf(expected);
     }
@@ -58,10 +60,10 @@ class FlattenListTest {
                         '2',
                         singletonList(singletonList(3)),
                         asList('4', singletonList(singletonList(5))),
-                        "six",
+                        SIX,
                         7),
                 "8");
-        final List<Object> expected = asList("one", '2', 3, '4', 5, "six", 7, "8");
+        final List<Object> expected = asList("one", '2', 3, '4', 5, SIX, 7, "8");
 
         assertThat(flattener.flatten(input)).containsExactlyElementsOf(expected);
     }

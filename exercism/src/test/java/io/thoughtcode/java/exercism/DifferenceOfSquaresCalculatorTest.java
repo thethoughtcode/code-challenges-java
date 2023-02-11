@@ -30,7 +30,7 @@ class DifferenceOfSquaresCalculatorTest {
 
     @Test
     void testSquareOfSumUpToHundred() {
-        final int expected = 25502500;
+        final int expected = 25_502_500;
         final int actual = calculator.computeSquareOfSumTo(100);
         assertThat(actual).isEqualTo(expected);
     }
@@ -51,7 +51,7 @@ class DifferenceOfSquaresCalculatorTest {
 
     @Test
     void testSumOfSquaresUpToHundred() {
-        final int expected = 338350;
+        final int expected = 338_350;
         final int actual = calculator.computeSumOfSquaresTo(100);
         assertThat(actual).isEqualTo(expected);
     }
@@ -72,7 +72,7 @@ class DifferenceOfSquaresCalculatorTest {
 
     @Test
     void testDifferenceOfSquaresUpToHundred() {
-        final int expected = 25164150;
+        final int expected = 25_164_150;
         final int actual = calculator.computeDifferenceOfSquares(100);
         assertThat(actual).isEqualTo(expected);
     }

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 class RaindropConverterTest {
 
-    private RaindropConverter raindropConverter = new RaindropConverter();
+    private final RaindropConverter raindropConverter = new RaindropConverter();
 
     @Test
     void soundFor1Is1() {

@@ -93,7 +93,7 @@ class NeedForSpeedTest {
 
     @Test
     void nitro_car_has_battery_not_drained() {
-        NeedForSpeed car = NeedForSpeed.nitro();
+        final NeedForSpeed car = NeedForSpeed.nitro();
         assertThat(car.batteryDrained()).isFalse();
     }
 

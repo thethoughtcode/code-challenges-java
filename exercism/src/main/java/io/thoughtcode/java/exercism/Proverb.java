@@ -1,11 +1,13 @@
 package io.thoughtcode.java.exercism;
 
+import java.util.Arrays;
+
 class Proverb {
 
     private final String[] words;
 
     Proverb(final String[] words) {
-        this.words = words;
+        this.words = Arrays.copyOf(words, words.length);
     }
 
     String recite() {

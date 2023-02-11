@@ -9,6 +9,24 @@ public class CarsAssemble {
 
     static final double MINUTES_PER_HOUR = 60.0;
 
+    static final double SPEED_ZERO = 0;
+
+    static final double SPEED_FOUR = 4;
+
+    static final double SPEED_EIGHT = 8;
+
+    static final double SPEED_NINE = 9;
+
+    static final double SUCCESS_RATE_ZERO = 0.0;
+
+    static final double SUCCESS_RATE_HUNDRED = 1.0;
+
+    static final double SUCCESS_RATE_EIGHTY = 0.8;
+
+    static final double SUCCESS_RATE_NINETY = 0.9;
+
+    static final double SUCCESS_RATE_DEFAULT = 0.77;
+
     public double productionRatePerHour(final int speed) {
         final BigDecimal totalCars = BigDecimal.valueOf(CARS_PER_HOUR * speed);
         return BigDecimal.valueOf(getSuccessRate(speed)).multiply(totalCars).doubleValue();
@@ -23,16 +41,16 @@ public class CarsAssemble {
 
         final double successRate;
 
-        if (speed <= 0) {
-            successRate = 0.0;
-        } else if (speed <= 4) {
-            successRate = 1.0;
-        } else if (speed <= 8) {
-            successRate = 0.9;
-        } else if (speed == 9) {
-            successRate = 0.8;
+        if (speed <= SPEED_ZERO) {
+            successRate = SUCCESS_RATE_ZERO;
+        } else if (speed <= SPEED_FOUR) {
+            successRate = SUCCESS_RATE_HUNDRED;
+        } else if (speed <= SPEED_EIGHT) {
+            successRate = SUCCESS_RATE_NINETY;
+        } else if (speed == SPEED_NINE) {
+            successRate = SUCCESS_RATE_EIGHTY;
         } else {
-            successRate = 0.77;
+            successRate = SUCCESS_RATE_DEFAULT;
         }
 
         return successRate;

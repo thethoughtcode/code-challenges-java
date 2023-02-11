@@ -1,5 +1,7 @@
 package io.thoughtcode.java.exercism;
 
+import io.thoughtcode.java.common.NumberConstants;
+
 public class NaturalNumber {
 
     private final int number;
@@ -17,8 +19,9 @@ public class NaturalNumber {
 
         final Classification result;
 
-        if (number != 1) {
-
+        if (number == NumberConstants.ONE) {
+            result = Classification.DEFICIENT;
+        } else {
             final int sum = getSumOfDivisors(number);
 
             if (sum < number) {
@@ -28,9 +31,6 @@ public class NaturalNumber {
             } else {
                 result = Classification.PERFECT;
             }
-
-        } else {
-            result = Classification.DEFICIENT;
         }
 
         return result;

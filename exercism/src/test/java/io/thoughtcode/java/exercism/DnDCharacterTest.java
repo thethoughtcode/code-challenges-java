@@ -2,6 +2,7 @@ package io.thoughtcode.java.exercism;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 class DnDCharacterTest {
@@ -94,21 +95,18 @@ class DnDCharacterTest {
         assertThat(score).isGreaterThan(2).isLessThan(19);
     }
 
-    @Test
+    @RepeatedTest(1000)
     void testRandomCharacterIsValid() {
 
-        for (int index = 0; index < 1000; index++) {
+        final DnDCharacter character = new DnDCharacter();
 
-            final DnDCharacter character = new DnDCharacter();
-
-            assertThat(character.getStrength()).isGreaterThan(2).isLessThan(19);
-            assertThat(character.getDexterity()).isGreaterThan(2).isLessThan(19);
-            assertThat(character.getConstitution()).isGreaterThan(2).isLessThan(19);
-            assertThat(character.getIntelligence()).isGreaterThan(2).isLessThan(19);
-            assertThat(character.getWisdom()).isGreaterThan(2).isLessThan(19);
-            assertThat(character.getCharisma()).isGreaterThan(2).isLessThan(19);
-            assertThat(character.getHitpoints()).isEqualTo(10 + character.modifier(character.getConstitution()));
-        }
+        assertThat(character.getStrength()).isGreaterThan(2).isLessThan(19);
+        assertThat(character.getDexterity()).isGreaterThan(2).isLessThan(19);
+        assertThat(character.getConstitution()).isGreaterThan(2).isLessThan(19);
+        assertThat(character.getIntelligence()).isGreaterThan(2).isLessThan(19);
+        assertThat(character.getWisdom()).isGreaterThan(2).isLessThan(19);
+        assertThat(character.getCharisma()).isGreaterThan(2).isLessThan(19);
+        assertThat(character.getHitpoints()).isEqualTo(10 + character.modifier(character.getConstitution()));
     }
 
     @Test

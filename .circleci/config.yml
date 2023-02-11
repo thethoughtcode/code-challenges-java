@@ -28,7 +28,7 @@ jobs:
             export COVERAGE_FILE="jacoco-report/target/site/jacoco-aggregate/jacoco.xml"
             export CODACY_PROJECT_NAME="$PROJECT_NAME"
 
-            export SONAR_ARGS="            -Dsonar.projectKey=thoughtcode_${PROJECT_NAME}"
+            export SONAR_ARGS="            -Dsonar.projectKey=thethoughtcode_${PROJECT_NAME}"
             export SONAR_ARGS="$SONAR_ARGS -Dsonar.organization=$ENV_SONAR_ORGANIZATION"
             export SONAR_ARGS="$SONAR_ARGS -Dsonar.host.url=https://sonarcloud.io"
             export SONAR_ARGS="$SONAR_ARGS -Dsonar.coverage.jacoco.xmlReportPaths=$COVERAGE_FILE"

@@ -191,7 +191,7 @@
             <property name="sortImportsInGroupAlphabetically" value="true"/>
             <property name="separateLineBetweenGroups" value="true"/>
             <property name="customImportOrderRules" value="STATIC###THIRD_PARTY_PACKAGE###SPECIAL_IMPORTS"/>
-            <property name="specialImportsRegExp" value="^io\.sampadadubey\."/>
+            <property name="specialImportsRegExp" value="^io\.thoughtcode\."/>
         </module>
         <module name="MethodParamPad"/>
         <module name="NoWhitespaceBefore">

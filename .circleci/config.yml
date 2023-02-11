@@ -23,6 +23,8 @@ jobs:
           name: Build
           command: |
 
+            env
+
             export PROJECT_NAME="code-challenges-java"
             export SONAR_TOKEN="${ENV_SONAR_TOKEN_CODE_CHALLENGES_JAVA}"
             export COVERAGE_FILE="jacoco-report/target/site/jacoco-aggregate/jacoco.xml"

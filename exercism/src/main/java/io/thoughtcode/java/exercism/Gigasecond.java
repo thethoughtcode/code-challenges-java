@@ -6,7 +6,7 @@ import java.time.temporal.ChronoUnit;
 
 public class Gigasecond {
 
-    static final long ONE_GIGASECONDS = 1_000_000_000l;
+    static final long ONE_GIGASECONDS = 1_000_000_000L;
 
     private final LocalDateTime moment;
 

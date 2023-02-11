@@ -10,7 +10,7 @@ public final class CountXX {
 
     static final Pattern PATTERN = Pattern.compile("([x]){2}");
 
-    public int countXXValues(final String str) {
+    public int countXxValues(final String str) {
 
         int count = 0;
 

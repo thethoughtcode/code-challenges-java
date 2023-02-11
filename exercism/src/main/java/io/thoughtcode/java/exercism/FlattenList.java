@@ -10,9 +10,13 @@ public class FlattenList {
 
         final List<Object> result = new ArrayList<>();
 
-        for (int index = 0; index < list.size(); index++) {
+        int index = 0;
+
+        while (index < list.size()) {
 
             final Object value = list.get(index);
+
+            index++;
 
             if (value == null) {
                 continue;

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 class SaySayTest {
 
-    private SaySay say = new SaySay();
+    private final SaySay say = new SaySay();
 
     @Test
     void zero() {
@@ -72,14 +72,16 @@ class SaySayTest {
     @Test
     void nineHundredEightySevenBillionSixHundredFiftyFourThreeHundredTwentyOneThousandOneHundredTwentyThree() {
         assertThat(say.say(987_654_321_123L))
-                .isEqualTo("nine hundred eighty-seven billion six hundred fifty-four million" +
-                        " three hundred twenty-one thousand one hundred twenty-three");
+                .isEqualTo("nine hundred eighty-seven billion six hundred fifty-four million"
+                         + " three hundred twenty-one thousand one hundred twenty-three");
     }
 
+    @Test
     void illegalNegativeNumber() {
         assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> say.say(-1));
     }
 
+    @Test
     void illegalTooBigNumber() {
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> say.say(NamedNumber.TRILLION.getNumber()));

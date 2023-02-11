@@ -115,7 +115,7 @@ public class SaySay {
             final int unitsValue = (int) number % 10;
 
             final String tensString = NamedNumber.getString(tensValue);
-            final String unitsString = unitsValue != 0 ? "-" + NamedNumber.getString(unitsValue) : "";
+            final String unitsString = unitsValue == 0 ? "" : "-" + NamedNumber.getString(unitsValue);
 
             result.append(format(" %s%s", tensString, unitsString).trim());
         } else {

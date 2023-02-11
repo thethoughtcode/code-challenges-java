@@ -72,7 +72,7 @@ enum Planet {
 
     private final double yearConversion;
 
-    private Planet(final double yearConversion) {
+    Planet(final double yearConversion) {
         this.yearConversion = yearConversion;
     }
 
